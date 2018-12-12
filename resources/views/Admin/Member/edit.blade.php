@@ -48,20 +48,62 @@
                       <!-- </div> -->
                     @endif
                     <div class="form-group">
-                      <label for="exampleInputName1">会员名</label>
-                      <input type="text" class="form-control" id="exampleInputName1" placeholder="请输入登录账号" name="name" value="{{$user->username}}">
+                      <label for="exampleInputName1">昵称</label>
+                      <input type="text" class="form-control" id="exampleInputName1" placeholder="请输入登录账号" name="name" value="{{$member->nickname}}">
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputPassword4">新密码</label>
-                      <input type="password" class="form-control" id="exampleInputPassword4" placeholder="请输入新密码" name="password">
+                      <label>性别</label>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="sex" id="membershipRadios1" value="1" @if($member->sex==1) checked @endif>
+                          男
+                        </label>
+                      </div>
+                       <div class="form-check">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="sex" id="membershipRadios1" value="0" @if($member->sex==0) checked @endif>
+                          女
+                        </label>
+                      </div>
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputPassword4">重复密码</label>
-                      <input type="password" class="form-control" id="exampleInputPassword4" placeholder="请再次输入密码" name="repassword">
+                      <label for="exampleInputPassword4">生日</label>
+                      <input type="text" class="form-control" id="exampleInputPassword4"  name="birthday" value="{{$member->birthday}}">
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputPhone3">手机号</label>
-                      <input type="text" class="form-control" id="exampleInputPhone3" placeholder="请输入手机号码" name="phone" value="{{$user->phone}}">
+                      <label>生活状态</label>
+                       <div class="form-check">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="status" id="membershipRadios1" value="0" @if($member->status==0) checked @endif>
+                          单身
+                        </label>
+                      </div>
+                       <div class="form-check">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="status" id="membershipRadios1" value="1" @if($member->status==1) checked @endif>
+                          热恋中
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="status" id="membershipRadios1" value="2" @if($member->status==2) checked @endif>
+                          已婚
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="status" id="membershipRadios1" value="3" @if($member->status==3) checked @endif>
+                          为人父母
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword4">从事行业</label>
+                      <input type="text" class="form-control" id="exampleInputPassword4"  name="industry" value="{{$member->industry}}">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword4">个性签名</label>
+                      <input type="text" class="form-control" id="exampleInputPassword4"  name="sign" value="{{$member->sign}}">
                     </div>
                 <!--     <div class="form-group">
                       <label>File upload</label>

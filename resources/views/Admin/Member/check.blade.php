@@ -42,59 +42,174 @@
             </nav>
           </div> -->
           <div class="row">
-            <div class="col-lg-12 grid-margin stretch-card">
+             <div class="col-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">管理员列表</h4>
-                  <p class="card-description">
-                    <!-- Add class <code>.table-bordered</code> -->
-                  </p>
-                  <table class="table table-bordered" style="text-align: center;">
-                    <thead>
-                      <tr>
-                        <th>ID</th>
-                        <th>会员名</th>
-                        <th>手机号</th>
-                        <th>注册时间</th>
-                        <th>操作</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @foreach($info as $row)
-                        <td>{{$row->id}}</td>
-                        <td>{{$row->name}}</td>
-                        <td>{{$row->phone}}</td>
-                        <td>{{date('Y-m-d H:i:s',$row->addtime)}}</td>
-                        <td class="td-manage">
-                           <a style="text-decoration:none;" href="/adminmember/{{$row->id}}">
-                            <button type="button" class="btn btn-gradient-info btn-rounded btn-sm" title="查看详情"><font style="vertical-align: inherit;">查看详情</font></button>
-                          </a>
-                          <a style="text-decoration:none;" href="/adminmember/{{$row->id}}/edit">
-                            <button type="button" class="btn btn-gradient-info btn-rounded btn-sm" title="修改信息"><font style="vertical-align: inherit;"><i class="mdi mdi-lead-pencil"></i>修改</font></button>
-                          </a>
-                          <form action="/adminmember/{{$row->id}}" method="post" style="display: inline-block;">
-                              {{csrf_field()}}
-                              {{method_field("DELETE")}}
-                              <button type="submit" class="btn btn-gradient-danger btn-rounded btn-sm" title="删除此管理员"><font style="vertical-align: inherit;"><i class="mdi mdi-delete"></i>删除</font></button>
-                          </form>
-                        </td>
-                      @endforeach
-                    </tbody>
-                  </table>
-                  <div id="pagination" class="pagination">
-                   
+                  <h4 class="card-title">会员详情信息</h4>
+                  <form class="form-sample">
+                    <p class="card-description">
+                      Personal info
+                    </p>
+                    <div class="row">
+                      <div class="col-md-8" >
+                        <div class="form-group row">
+                          <label class="col-sm-4 col-form-label">昵称</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" readonly="readonly" value="{{$info->nickname}}"/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-8" >
+                        <div class="form-group row">
+                          <label class="col-sm-4 col-form-label">性别</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" readonly="readonly" value="{{$info->sex}}"/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                     <div class="row">
+                      <div class="col-md-8" >
+                        <div class="form-group row">
+                          <label class="col-sm-4 col-form-label">生日</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" readonly="readonly" value="{{$info->birthday}}"/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-8" >
+                        <div class="form-group row">
+                          <label class="col-sm-4 col-form-label">生活状态</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" readonly="readonly" value="{{$info->status}}"/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                     <div class="row">
+                      <div class="col-md-8" >
+                        <div class="form-group row">
+                          <label class="col-sm-4 col-form-label">从事行业</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" readonly="readonly" value="{{$info->industry}}"/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-8" >
+                        <div class="form-group row">
+                          <label class="col-sm-4 col-form-label">兴趣</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" readonly="readonly" value="{{$info->interest}}"/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-8" >
+                        <div class="form-group row">
+                          <label class="col-sm-4 col-form-label">个性签名</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" readonly="readonly" value="{{$info->sign}}"/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    
+                   <!--  <p class="card-description">
+                      Address
+                    </p>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Address 1</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">State</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Address 2</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Postcode</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">City</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Country</label>
+                          <div class="col-sm-9">
+                            <select class="form-control">
+                              <option>America</option>
+                              <option>Italy</option>
+                              <option>Russia</option>
+                              <option>Britain</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div> -->
+                  </form>
+                </div>
+                <div class="row">
+                  <div class="col-md-8" >
+                    <div class="form-group row">
+                      <label class="col-sm-4 col-form-label"></label>
+                      <a href="/adminmember" style="text-decoration:none;">
+                        <button type="button" class="btn btn-gradient-success btn-rounded btn-fw">返回</button>
+                      </a>
+                    </div>
                   </div>
-                  
                 </div>
               </div>
             </div>
           </div>
+
+        <!--   <a style="text-decoration:none;float:left;" href="/adminmember">
+        <button type="button" class="btn btn-gradient-info btn-rounded btn-sm" title="修改信息"><font style="vertical-align: inherit;"><i class="mdi mdi-border-color"></i></font></button>
+      </a> -->
         <!-- </div> -->
         <!-- content-wrapper ends -->
         <!-- partial:/static/admins/node/partials/_footer.html -->
        
         <!-- partial -->
       </div>
+      
       <!-- main-panel ends -->
     <!-- </div> -->
     <!-- page-body-wrapper ends -->
@@ -135,4 +250,4 @@
 </script>
 </html>
 @endsection
-@section('title','会员列表')
+@section('title','会员详情信息')

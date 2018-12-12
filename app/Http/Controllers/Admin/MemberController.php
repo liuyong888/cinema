@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use DB;
 use Hash;
+use App\Models\Member;
 class MemberController extends Controller
 {
     /**
@@ -72,7 +73,8 @@ class MemberController extends Controller
     public function edit($id)
     {
         //
-        return view("Admin.Member.edit");
+        $member = DB::table("member_info")->join('member','member_info.name','=','member.name')->first();
+        return view("Admin.Member.edit",['member'=>$member]);
     }
 
     /**
@@ -85,6 +87,15 @@ class MemberController extends Controller
     public function update(Request $request, $id)
     {
         //
+        // echo $id;
+        $member = DB::table("member_info")->where("id",'=',$id)->first();
+        // dd($request->all());
+        $data=$request->except(['_token','_method']);
+        if(DB::table("member_info")->where("id",'=',$id)->update($data)){
+            return redirect("/adminmember")->with('success','修改成功');
+        }else{
+            return redirect("/adminmember/$id/edit")->with('error','修改失败');
+        }
     }
 
     /**
@@ -93,16 +104,18 @@ class MemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // 删除数据
     public function destroy($id)
     {
         //
+        // echo "this is delete".$id;
     }
 
     //查看会员信息详情
     public function check($id){
         // echo $id;
-        $info = DB::table("member_info")->join('member','member_info.name','=','member.name')->get();
-        dd($info);
-        // return view("Admin.Member.check",['info'=>$info]);
+        $info = DB::table("member_info")->join('member','member_info.name','=','member.name')->first();
+        // dd($info);
+        return view("Admin.Member.check",['info'=>$info]);
     }
 }

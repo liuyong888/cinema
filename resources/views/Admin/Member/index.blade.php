@@ -45,7 +45,7 @@
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">管理员列表</h4>
+                  <h4 class="card-title">会员列表</h4>
                   <p class="card-description">
                     <!-- Add class <code>.table-bordered</code> -->
                   </p>
@@ -75,7 +75,7 @@
                           <form action="/adminmember/{{$row->id}}" method="post" style="display: inline-block;">
                               {{csrf_field()}}
                               {{method_field("DELETE")}}
-                              <button type="submit" class="btn btn-gradient-danger btn-rounded btn-sm" title="删除此管理员"><font style="vertical-align: inherit;"><i class="mdi mdi-delete"></i>删除</font></button>
+                              <button type="submit" class="btn btn-gradient-danger btn-rounded btn-sm" title="删除此会员"><font style="vertical-align: inherit;"><i class="mdi mdi-delete"></i>删除</font></button>
                           </form>
                         </td>
                       @endforeach
