@@ -19,3 +19,4 @@ Route::resource("/admin","Admin\AdminController");
 Route::resource("/adminuser","Admin\UserController");
 Route::resource("/adminmember","Admin\MemberController");
 Route::get("/adminmemcheck/{id}","Admin\MemberController@check");
+// 注释 test
