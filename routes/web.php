@@ -70,4 +70,4 @@ Route::resource("/gerenxinxi","Home\GerenxinxiController");
 
 //前台订单信息页面
 Route::resource("/dingdanxinxi","Home\DingdanxinxiController");
-// hq
+// hq1
