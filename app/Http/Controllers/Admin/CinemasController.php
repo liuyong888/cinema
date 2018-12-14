@@ -133,7 +133,7 @@ class CinemasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //123
     }
     // 文件上传(图片)
     public function uploads($req)
