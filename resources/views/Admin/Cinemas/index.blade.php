@@ -45,44 +45,45 @@
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">管理员列表</h4>
-                  <form action="/adminuser" method="get">
-                     <p class="card-description">
-                      <input type="text" class="col-sm-3 form-control" style="display: inline-block;" name="keywords" value="{{$request['keywords'] or ''}}"><button type="submit" class="btn btn-gradient-primary btn-sm">搜索</button>
-                    </p>
-                  </form>
+                  <h4 class="card-title">影院列表</h4>
+                  <p class="card-description">
+                    <!-- Add class <code>.table-bordered</code> -->
+                  </p>
                   <table class="table table-bordered" style="text-align: center;">
                     <thead>
                       <tr>
                         <th>ID</th>
-                        <th>登录名</th>
+                        <th>影院名</th>
+                        <th>影院图片</th>
+                        <th>影院地址</th>
+                        <th>联系电话</th>
                         <th>操作</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      @foreach($user as $row)
+                    <tbody>     
+                    @foreach($data as $row)                
                       <tr>
                         <td>{{$row->id}}</td>
                         <td>{{$row->name}}</td>
-                        <td class="td-manage" style="width:400px">
-                          <a style="text-decoration:none;" href="/adminrole/{{$row->id}}">
-                            <button type="button" class="btn btn-gradient-success btn-rounded btn-sm" title="分配角色"><font style="vertical-align: inherit;"><i class="mdi mdi-lead-pencil"></i>分配角色</font></button>
+                        <td><img src='./uploads/cinemas/{{$row->pic}}'></td>
+                        <td>{{$row->address}}</td>                        
+                        <td>{{$row->tel}}</td>
+                        <td class="td-manage">
+                          <a style="text-decoration:none;float:left;" href="/admincinemas/{{$row->id}}">
+                            <button type="button" class="btn btn-gradient-info btn-rounded btn-sm" title="修改信息"><font style="vertical-align: inherit;"><i class="mdi mdi-border-color"></i></font></button>
                           </a>
-                          <a style="text-decoration:none;" href="/adminuser/{{$row->id}}/edit">
-                            <button type="button" class="btn btn-gradient-info btn-rounded btn-sm" title="修改信息"><font style="vertical-align: inherit;"><i class="mdi mdi-lead-pencil"></i>修改信息</font></button>
-                          </a>
-                          <form action="/adminuser/{{$row->id}}" method="post" style="display: inline-block;">
-                              {{csrf_field()}}
-                              {{method_field("DELETE")}}
-                              <button type="submit" class="btn btn-gradient-danger btn-rounded btn-sm del" title="删除此管理员"><font style="vertical-align: inherit;"><i class="mdi mdi-delete"></i>删除</font></button>
+                          <form action="" method="post" style="float: right;">
+                              <!-- {{csrf_field()}} -->
+                              <!-- {{method_field("DELETE")}} -->
+                              <button type="submit" class="btn btn-gradient-danger btn-rounded btn-sm" title="删除"><font style="vertical-align: inherit;"><i class="mdi mdi-delete"></i></font></button>
                           </form>
                         </td>
                       </tr>
-                      @endforeach
+                    @endforeach
                     </tbody>
                   </table>
                   <div id="pagination" class="pagination">
-                    {{$user->appends($request)->render()}}
+                    
                   </div>
                   
                 </div>
@@ -119,7 +120,7 @@
   /*window.onload = function () {
     new Page({
         id: 'pagination',
-        pageTotal: count($user), //必填,总页数
+        pageTotal: 50, //必填,总页数
         pageAmount: 10,  //每页多少条
         dataTotal: 500, //总共多少条数据
         curPage:1, //初始页码,不填默认为1
@@ -135,4 +136,4 @@
 </script>
 </html>
 @endsection
-@section('title','管理员列表')
+@section('title','影院列表')

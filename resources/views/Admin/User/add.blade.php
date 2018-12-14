@@ -50,7 +50,7 @@
                     @endif
                     <div class="form-group">
                       <label for="exampleInputName1">登录账号</label>
-                      <input type="text" class="form-control" id="exampleInputName1" placeholder="请输入登录账号" name="username" >
+                      <input type="text" class="form-control" id="exampleInputName1" placeholder="请输入登录账号" name="name" >
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword4">密码</label>
@@ -59,26 +59,6 @@
                     <div class="form-group">
                       <label for="exampleInputPassword4">重复密码</label>
                       <input type="password" class="form-control" id="exampleInputPassword4" placeholder="请再次输入密码" name="repassword">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPhone3">手机号</label>
-                      <input type="text" class="form-control" id="exampleInputPhone3" placeholder="请输入手机号码" name="phone">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleSelectGender">管理权限</label>
-                        <select class="form-control" id="exampleSelectGender" name="qx">
-                          <option value="0">普通用户</option>
-                          <option value="1">VIP用户</option>
-                          <option value="2">一般管理员</option>
-                          <option value="3">超级管理员</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleSelectGender">状态</label>
-                        <select class="form-control" id="exampleSelectGender" name="status">
-                          <option value="0">启用</option>
-                          <option value="1">禁用</option>
-                        </select>
                     </div>
                 <!--     <div class="form-group">
                       <label>File upload</label>

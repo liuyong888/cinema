@@ -31,11 +31,11 @@
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">修改管理员信息</h4>
+                  <h4 class="card-title">修改角色信息</h4>
                   <p class="card-description">
                     <!-- Basic form elements -->
                   </p>
-                  <form class="forms-sample" action="/adminuser/{{$user->id}}" method="post">
+                  <form class="forms-sample" action="/rolelist/{{$role->id}}" method="post">
                     @if (count($errors) > 0)
                       <!-- <div class="mws-form-message error"> -->
                       <!-- <div class="alert alert-danger"> -->
@@ -48,20 +48,8 @@
                       <!-- </div> -->
                     @endif
                     <div class="form-group">
-                      <label for="exampleInputName1">登录账号</label>
-                      <input type="text" class="form-control" id="exampleInputName1" placeholder="请输入登录账号" name="username" value="{{$user->name}}">
-                    </div>
-                   <!--  <div class="form-group">
-                      <label for="exampleInputPassword4">请先输入旧密码</label>
-                      <input type="password" class="form-control" id="exampleInputPassword4" placeholder="请先输入旧密码进行验证" name="oldpassword">
-                    </div> -->
-                    <div class="form-group">
-                      <label for="exampleInputPassword4">新密码</label>
-                      <input type="password" class="form-control" id="exampleInputPassword4" placeholder="请输入新密码" name="password">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword4">重复密码</label>
-                      <input type="password" class="form-control" id="exampleInputPassword4" placeholder="请再次输入密码" name="repassword">
+                      <label for="exampleInputName1">角色名</label>
+                      <input type="text" class="form-control" id="exampleInputName1" placeholder="请输入新的角色名" name="name" value="{{$role->name}}">
                     </div>
                     {{csrf_field()}}
                     {{method_field("PUT")}}
@@ -103,4 +91,4 @@
 </script>
 </html>
 @endsection
-@section('title','修改管理员信息')
+@section('title','修改角色信息')

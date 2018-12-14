@@ -31,15 +31,16 @@
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">修改管理员信息</h4>
+                  <h4 class="card-title">影院添加</h4>
                   <p class="card-description">
                     <!-- Basic form elements -->
                   </p>
-                  <form class="forms-sample" action="/adminuser/{{$user->id}}" method="post">
+                  <!-- <div class="mws-panel-body no-padding">  -->
+                  <form class="forms-sample" action="/admincinemas" method="post" enctype="multipart/form-data">
                     @if (count($errors) > 0)
                       <!-- <div class="mws-form-message error"> -->
                       <!-- <div class="alert alert-danger"> -->
-                        <ul class="alert alert-danger" id="ul">
+                        <ul class="alert alert-danger" id="ul" style="cursor:pointer;">
                           @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li> 
                           @endforeach
@@ -48,30 +49,29 @@
                       <!-- </div> -->
                     @endif
                     <div class="form-group">
-                      <label for="exampleInputName1">登录账号</label>
-                      <input type="text" class="form-control" id="exampleInputName1" placeholder="请输入登录账号" name="username" value="{{$user->name}}">
-                    </div>
-                   <!--  <div class="form-group">
-                      <label for="exampleInputPassword4">请先输入旧密码</label>
-                      <input type="password" class="form-control" id="exampleInputPassword4" placeholder="请先输入旧密码进行验证" name="oldpassword">
-                    </div> -->
-                    <div class="form-group">
-                      <label for="exampleInputPassword4">新密码</label>
-                      <input type="password" class="form-control" id="exampleInputPassword4" placeholder="请输入新密码" name="password">
+                      <label for="exampleInputName1">影院名</label>
+                      <input type="text" class="form-control" id="exampleInputName1" placeholder="影院名" name="name"  value="{{old('name')}}">
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputPassword4">重复密码</label>
-                      <input type="password" class="form-control" id="exampleInputPassword4" placeholder="请再次输入密码" name="repassword">
+                      <label for="exampleInputPassword4">影院地址</label>
+                      <input type="text" class="form-control" id="exampleInputPassword4" placeholder="影院地址" name="address" value="{{old('address')}}">
                     </div>
+                    <div class="form-group">
+                      <label for="exampleInputPhone3">联系电话</label>
+                      <input type="text" class="form-control" id="exampleInputPhone3" placeholder="联系电话" name="tel" value="{{old('tel')}}">
+                    </div> 
+                    <div class="form-group">
+                      <label for="exampleInputPassword4">影院图片&nbsp:&nbsp</label>
+                      <input type="file" name="pic">
+                    </div>                
                     {{csrf_field()}}
-                    {{method_field("PUT")}}
                     <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
                     <button class="btn btn-light">Cancel</button>
                   </form>
                 </div>
               </div>
             </div>
-
+           <!-- </div> -->
           </div>
         </div>
         <!-- content-wrapper ends -->
@@ -90,7 +90,6 @@
   <!-- inject:js -->
   <script src="/static/admins/js/off-canvas.js"></script>
   <script src="/static/admins/js/misc.js"></script>
-  <script src="/static/admins/js/bootstrap.min.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
   <script src="/static/admins/js/file-upload.js"></script>
@@ -98,9 +97,9 @@
 </body>
 <script>
   $("#ul").click(function(){
-    $(this).hide();
+    $(this).fadeOut("slow");
   });
 </script>
 </html>
 @endsection
-@section('title','修改管理员信息')
+@section('title','影院添加')
