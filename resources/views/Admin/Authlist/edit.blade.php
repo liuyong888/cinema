@@ -31,11 +31,11 @@
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">修改管理员信息</h4>
+                  <h4 class="card-title">修改权限信息</h4>
                   <p class="card-description">
                     <!-- Basic form elements -->
                   </p>
-                  <form class="forms-sample" action="/adminuser/{{$user->id}}" method="post">
+                  <form class="forms-sample" action="/authlist/{{$node->id}}" method="post">
                     @if (count($errors) > 0)
                       <!-- <div class="mws-form-message error"> -->
                       <!-- <div class="alert alert-danger"> -->
@@ -48,20 +48,39 @@
                       <!-- </div> -->
                     @endif
                     <div class="form-group">
-                      <label for="exampleInputName1">登录账号</label>
-                      <input type="text" class="form-control" id="exampleInputName1" placeholder="请输入登录账号" name="username" value="{{$user->name}}">
-                    </div>
-                   <!--  <div class="form-group">
-                      <label for="exampleInputPassword4">请先输入旧密码</label>
-                      <input type="password" class="form-control" id="exampleInputPassword4" placeholder="请先输入旧密码进行验证" name="oldpassword">
-                    </div> -->
-                    <div class="form-group">
-                      <label for="exampleInputPassword4">新密码</label>
-                      <input type="password" class="form-control" id="exampleInputPassword4" placeholder="请输入新密码" name="password">
+                      <label for="exampleInputName1">权限名</label>
+                      <input type="text" class="form-control" id="exampleInputName1" placeholder="请输入权限名" name="name" value="{{$node->name}}">
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputPassword4">重复密码</label>
-                      <input type="password" class="form-control" id="exampleInputPassword4" placeholder="请再次输入密码" name="repassword">
+                      <label for="exampleInputName1">控制器</label>
+                      <input type="text" class="form-control" id="exampleInputName1" placeholder="请输入控制器" name="mname" value="{{$node->mname}}">
+                    </div>
+                     <div class="form-group">
+                      <label for="exampleInputName1">方法</label>
+                      <input type="text" class="form-control" id="exampleInputName1" placeholder="请输入方法" name="aname" value="{{$node->aname}}" >
+                    </div>
+                    <div class="form-group">
+                      <label class="col-form-label" for="exampleInputName1">状态</label>
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <!-- <div class="col-sm-4"> -->
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="status" id="membershipRadios1" value="0" @if($node->status==0) checked @endif>
+                                启用
+                              <i class="input-helper"></i></label>
+                            </div>
+                          <!-- </div> -->
+                          <div class="col-sm-5">
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="status" id="membershipRadios2" value="1" @if($node->status==1) checked @endif>
+                                禁用
+                              <i class="input-helper"></i></label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     {{csrf_field()}}
                     {{method_field("PUT")}}
@@ -103,4 +122,4 @@
 </script>
 </html>
 @endsection
-@section('title','修改管理员信息')
+@section('title','修改角色信息')

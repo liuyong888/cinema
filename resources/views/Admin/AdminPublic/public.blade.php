@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="/static/admins/css/panels.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="/static/admins/images/favicon.png" />
-  <script type="text/javascript" src="/static/admins/js/layer/layer.js"></script>
+  <!-- <script type="text/javascript" src="/static/admins/js/layer/layer.js"></script> -->
 </head>
 <body>
   <div class="container-scroller">
@@ -166,7 +166,7 @@
             </div>
           </li>
           <li class="nav-item nav-logout d-none d-lg-block">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/adminlogin">
               <i class="mdi mdi-power"></i>
             </a>
           </li>
@@ -206,12 +206,12 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="#member-basic" aria-expanded="false" aria-controls="member-basic">
               <span class="menu-title">会员管理</span>
               <i class="menu-arrow"></i>
               <i class="mdi mdi-account"></i>
             </a>
-            <div class="collapse" id="ui-basic">
+            <div class="collapse" id="member-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="\adminmember">会员列表</a></li>
                 <li class="nav-item"> <a class="nav-link" href="\adminmember\create">会员添加</a></li>
@@ -226,8 +226,12 @@
             </a>
             <div class="collapse" id="user-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="\adminuser">管理员列表</a></li>
                 <li class="nav-item"> <a class="nav-link" href="\adminuser\create">管理员添加</a></li>
+                <li class="nav-item"> <a class="nav-link" href="\adminuser">管理员列表</a></li>
+                <li class="nav-item"> <a class="nav-link" href="\rolelist\create">角色添加</a></li>
+                <li class="nav-item"> <a class="nav-link" href="\rolelist">角色列表</a></li>
+                <li class="nav-item"> <a class="nav-link" href="\authlist\create">权限添加</a></li>
+                <li class="nav-item"> <a class="nav-link" href="\authlist">权限列表</a></li>
               </ul>
             </div>
           </li>
@@ -313,7 +317,7 @@
            @endif
            
          @if(session('error'))    
-            <div class="mws-form-message warning">
+            <div class="mws-form-message warning" id="warning">
                 {{session('error')}}
             </div>
         @endif
@@ -355,5 +359,8 @@
 	$("#success").click(function(){
 		$(this).fadeOut("slow");
 	});
+  $("#warning").click(function(){
+    $(this).fadeOut("slow");
+  });
 </script>
 </html>

@@ -4,11 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
 use DB;
-use Hash;
-use App\Models\Member;
-class MemberController extends Controller
+class AuthlistController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +15,9 @@ class MemberController extends Controller
     public function index()
     {
         //
-        $member = DB::table("member")->paginate(3);
-        return view("Admin.Member.index",['member'=>$member]);
+        // echo "this is index";
+        $node = DB::table("node")->paginate(7);
+        return view("Admin.Authlist.index",['node'=>$node]);
     }
 
     /**
@@ -30,7 +28,7 @@ class MemberController extends Controller
     public function create()
     {
         //
-        return view("Admin.Member.add");
+        return view("Admin.Authlist.add");
     }
 
     /**
@@ -43,13 +41,12 @@ class MemberController extends Controller
     {
         //
         // dd($request->all());
-        $data=$request->except(['repassword','_token']);
-        $data['addtime']=time();
-        $data['password']=Hash::make($data['password']);
-        if(DB::table('member')->insert($data)){
-            return redirect("/adminmember")->with('success','添加成功');
+        $data=$request->except(['_token']);
+        // dd($data);
+        if(DB::table("node")->insert($data)){
+            return redirect("/authlist")->with('success','添加成功');
         }else{
-            return back()->with('error','添加失败');
+            return redirect("/authlist")->with('error','添加失败');
         }
     }
 
@@ -73,8 +70,8 @@ class MemberController extends Controller
     public function edit($id)
     {
         //
-        $member = DB::table("member_info")->join('member','member_info.m_id','=','member.id')->first();
-        return view("Admin.Member.edit",['member'=>$member]);
+        $node = DB::table("node")->where("id","=",$id)->first();
+        return view("Admin.Authlist.edit",['node'=>$node]);
     }
 
     /**
@@ -87,14 +84,13 @@ class MemberController extends Controller
     public function update(Request $request, $id)
     {
         //
-        // echo $id;
-        $member = DB::table("member_info")->where("id",'=',$id)->first();
         // dd($request->all());
-        $data=$request->except(['_token','_method']);
-        if(DB::table("member_info")->where("id",'=',$id)->update($data)){
-            return redirect("/adminmember")->with('success','修改成功');
+        $node=DB::table("node")->where("id","=",$id)->first();
+        $data = $request->except(['_token','_method']);
+        if(DB::table("node")->where("id","=",$id)->update($data)){
+            return redirect("/authlist")->with('success','修改成功');
         }else{
-            return redirect("/adminmember/$id/edit")->with('error','修改失败');
+            return redirect("/authlist/$id/edit")->with('error','修改失败');
         }
     }
 
@@ -104,18 +100,13 @@ class MemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // 删除数据
     public function destroy($id)
     {
-        //
-        // echo "this is delete".$id;
-    }
-
-    //查看会员信息详情
-    public function check($id){
-        // echo $id;
-        $member = DB::table("member_info")->join('member','member_info.m_id','=','member.id')->first();
-        // dd($member);
-        return view("Admin.Member.check",['member'=>$member]);
+        //执行删除
+        if(DB::table("node")->where("id","=",$id)->delete()){
+            return redirect("/authlist")->with('success','删除成功');
+        }else{
+            return redirect("/authlist")->with('success','删除失败');
+        }
     }
 }
