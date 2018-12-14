@@ -23,7 +23,7 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="index.html"><img src="/static/admins/images/logo.svg" alt="logo"/></a>
+        <a class="navbar-brand brand-logo" href="/admin"><img src="/static/admins/images/logo.svg" alt="logo"/></a>
         <a class="navbar-brand brand-logo-mini" href="index.html"><img src="/static/admins/images/logo-mini.svg" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
@@ -231,6 +231,19 @@
               </ul>
             </div>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#cinemas-basic" aria-expanded="false" aria-controls="cinemas-basic">
+              <span class="menu-title">电影院列表</span>
+              <i class="menu-arrow"></i>
+              <i class="mdi mdi-account"></i>
+            </a>
+            <div class="collapse" id="cinemas-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/admincinemas">影院列表</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/admincinemas/create">影院添加</a></li>
+              </ul>
+            </div>
+          </li>          
           <li class="nav-item">
             <a class="nav-link" href="pages/icons/mdi.html">
               <span class="menu-title">Icons</span>
