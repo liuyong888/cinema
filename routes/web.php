@@ -23,6 +23,8 @@ Route::resource("/adminuser","Admin\UserController");
 Route::resource("/adminmember","Admin\MemberController");
 // 查看后台会员信息
 Route::get("/adminmemcheck/{id}","Admin\MemberController@check");
+//后台电影列表
+Route::resource("/adminmovies","Admin\DianyingController");
 
 //前台首页
 Route::resource("/","Home\IndexController");

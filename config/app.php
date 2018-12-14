@@ -227,5 +227,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
+    //配置信息,规定文件上传的目录
+    'uploads'=>'./uploads/dianyingtupian',
 
 ];

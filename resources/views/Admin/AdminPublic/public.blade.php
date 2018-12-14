@@ -28,12 +28,12 @@
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <div class="search-field d-none d-md-block">
-          <form class="d-flex align-items-center h-100" action="#">
+          <form class="d-flex align-items-center h-100" action="/adminmovies" method="get">
             <div class="input-group">
               <div class="input-group-prepend bg-transparent">
-                  <i class="input-group-text border-0 mdi mdi-magnify"></i>                
+                  <button type="submit"><i class="input-group-text border-0 mdi mdi-magnify"></i></button>               
               </div>
-              <input type="text" class="form-control bg-transparent border-0" placeholder="Search projects">
+              <input type="text" class="form-control bg-transparent border-0" placeholder="Search projects" name="keywords" value="{{$request['keywords'] or ''}}">
             </div>
           </form>
         </div>
@@ -232,10 +232,17 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/icons/mdi.html">
-              <span class="menu-title">Icons</span>
-              <i class="mdi mdi-contacts menu-icon"></i>
+            <a class="nav-link" data-toggle="collapse" href="#user-basic" aria-expanded="false" aria-controls="user-basic">
+              <span class="menu-title">电影管理</span>
+              <i class="menu-arrow"></i>
+              <i class="mdi mdi-account"></i>
             </a>
+            <div class="collapse" id="user-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="\adminmovies">电影列表</a></li>
+                <li class="nav-item"> <a class="nav-link" href="\adminmovies\create">电影添加</a></li>
+              </ul>
+            </div>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="pages/forms/basic_elements.html">
