@@ -49,7 +49,7 @@
                     @endif
                     <div class="form-group">
                       <label for="exampleInputName1">昵称</label>
-                      <input type="text" class="form-control" id="exampleInputName1" placeholder="请输入登录账号" name="name" value="{{$member->nickname}}">
+                      <input type="text" class="form-control" id="exampleInputName1" name="nickname" value="{{$member->nickname}}">
                     </div>
                     <div class="form-group">
                       <label>性别</label>

@@ -55,7 +55,7 @@
                         <div class="form-group row">
                           <label class="col-sm-4 col-form-label">昵称</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" readonly="readonly" value="{{$info->nickname}}"/>
+                            <input type="text" class="form-control" readonly="readonly" value="{{$member->nickname}}"/>
                           </div>
                         </div>
                       </div>
@@ -65,7 +65,7 @@
                         <div class="form-group row">
                           <label class="col-sm-4 col-form-label">性别</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" readonly="readonly" value="{{$info->sex}}"/>
+                            <input type="text" class="form-control" readonly="readonly" value="{{$member->sex}}"/>
                           </div>
                         </div>
                       </div>
@@ -75,7 +75,7 @@
                         <div class="form-group row">
                           <label class="col-sm-4 col-form-label">生日</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" readonly="readonly" value="{{$info->birthday}}"/>
+                            <input type="text" class="form-control" readonly="readonly" value="{{$member->birthday}}"/>
                           </div>
                         </div>
                       </div>
@@ -85,7 +85,7 @@
                         <div class="form-group row">
                           <label class="col-sm-4 col-form-label">生活状态</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" readonly="readonly" value="{{$info->status}}"/>
+                            <input type="text" class="form-control" readonly="readonly" value="{{$member->status}}"/>
                           </div>
                         </div>
                       </div>
@@ -95,7 +95,7 @@
                         <div class="form-group row">
                           <label class="col-sm-4 col-form-label">从事行业</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" readonly="readonly" value="{{$info->industry}}"/>
+                            <input type="text" class="form-control" readonly="readonly" value="{{$member->industry}}"/>
                           </div>
                         </div>
                       </div>
@@ -105,7 +105,7 @@
                         <div class="form-group row">
                           <label class="col-sm-4 col-form-label">兴趣</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" readonly="readonly" value="{{$info->interest}}"/>
+                            <input type="text" class="form-control" readonly="readonly" value="{{$member->interest}}"/>
                           </div>
                         </div>
                       </div>
@@ -115,7 +115,7 @@
                         <div class="form-group row">
                           <label class="col-sm-4 col-form-label">个性签名</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" readonly="readonly" value="{{$info->sign}}"/>
+                            <input type="text" class="form-control" readonly="readonly" value="{{$member->sign}}"/>
                           </div>
                         </div>
                       </div>

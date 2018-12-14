@@ -15,14 +15,45 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// 后台首页
-Route::resource("/admin","Admin\AdminController");
-// 后台管理员
-Route::resource("/adminuser","Admin\UserController");
-// 后台会员
-Route::resource("/adminmember","Admin\MemberController");
-// 查看后台会员信息
-Route::get("/adminmemcheck/{id}","Admin\MemberController@check");
+
+//后台登录
+Route::resource("/adminlogin","Admin\AdminLoginController");
+
+Route::group(["middleware"=>'login'],function(){
+	// 后台首页
+	Route::resource("/admin","Admin\AdminController");
+
+	// 后台管理员管理
+	Route::resource("/adminuser","Admin\UserController");
+
+	// 后台角色分配
+	Route::get("/adminrole/{id}","Admin\UserController@rolelist");
+
+	// 后台角色保存
+	Route::post("/adminsaverole","Admin\UserController@saverole");
+
+	//角色管理
+	Route::resource("/rolelist","Admin\RolelistController");
+
+	//分配权限
+	Route::get("/auth/{id}","Admin\RolelistController@auth");
+
+	//保存权限
+	Route::post("/saveauth","Admin\RolelistController@saveauth");
+
+	//权限管理
+	Route::resource("/authlist","Admin\AuthlistController");
+
+	// 后台会员
+	Route::resource("/adminmember","Admin\MemberController");
+
+	// 查看后台会员信息
+	Route::get("/adminmemcheck/{id}","Admin\MemberController@check");
+
+});
+
+
+
 
 //前台首页
 Route::resource("/","Home\IndexController");
