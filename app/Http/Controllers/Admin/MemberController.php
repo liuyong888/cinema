@@ -15,11 +15,13 @@ class MemberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        $member = DB::table("member")->paginate(3);
-        return view("Admin.Member.index",['member'=>$member]);
+        //获取搜索关键词
+        $k = $request->input('keywords');
+        //获取列表数据 
+        $member = DB::table("member")->where("name","like","%".$k."%")->paginate(3);
+        return view("Admin.Member.index",['member'=>$member,'request'=>$request->all()]);
     }
 
     /**
@@ -90,7 +92,7 @@ class MemberController extends Controller
         // echo $id;
         $member = DB::table("member_info")->where("id",'=',$id)->first();
         // dd($request->all());
-        $data=$request->except(['_token','_method']);
+        $data=$request->except(['_token','_method','pic']);
         if(DB::table("member_info")->where("id",'=',$id)->update($data)){
             return redirect("/adminmember")->with('success','修改成功');
         }else{
@@ -109,6 +111,11 @@ class MemberController extends Controller
     {
         //
         // echo "this is delete".$id;
+         if(DB::table('member')->where("id","=",$id)->delete()){
+            return redirect("/adminmember")->with("success",'删除成功');
+        }else{
+            return redirect("/adminmember")->with('error','删除失败');
+        }
     }
 
     //查看会员信息详情

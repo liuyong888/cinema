@@ -229,5 +229,7 @@ return [
     ],
     //配置信息,规定文件上传的目录
     'uploads'=>'./uploads/dianyingtupian',
+    //首页轮播图地址
+    'uploadspic'=>'./uploads/homepic',
 
 ];

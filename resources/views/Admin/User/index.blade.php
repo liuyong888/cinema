@@ -1,138 +1,60 @@
 @extends("Admin.AdminPublic.public")
 @section('content')
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- plugins:css -->
-  <link rel="stylesheet" href="/static/admins/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="/static/admins/vendors/css/vendor.bundle.base.css">
-  <!-- endinject -->
-  <!-- plugin css for this page -->
-  <link rel="stylesheet" href="/static/admins/node/node_modules/jqvmap/dist/jqvmap.min.css" />
-  <!-- End plugin css for this page -->
-  <!-- inject:css -->
-  <link rel="stylesheet" href="/static/admins/node/css/style.css">
-  <!-- endinject -->
-  <link rel="shortcut icon" href="/static/admins/node/images/favicon.png" />
-  <link rel="stylesheet" href="/static/admins/css/myPagination.css">
-</head>
+<div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
 
-<body>
-  <!-- <div class="container-scroller"> -->
-    <!-- partial:/static/admins/node/partials/_navbar.html -->
- 
-    <!-- partial -->
-    <!-- <div class="container-fluid page-body-wrapper"> -->
-      <!-- partial:/static/admins/node/partials/_sidebar.html -->
-      <!-- partial -->
-      <!-- <div class="main-panel"> -->
-        <div class="content-wrapper">
-         <!--  <div class="page-header">
-            <h3 class="page-title">
-              Basic Tables
-            </h3>
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
-              </ol>
-            </nav>
-          </div> -->
-          <div class="row">
-            <div class="col-lg-12 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">管理员列表</h4>
-                  <form action="/adminuser" method="get">
-                     <p class="card-description">
-                      <input type="text" class="col-sm-3 form-control" style="display: inline-block;" name="keywords" value="{{$request['keywords'] or ''}}"><button type="submit" class="btn btn-gradient-primary btn-sm">搜索</button>
-                    </p>
-                  </form>
-                  <table class="table table-bordered" style="text-align: center;">
-                    <thead>
-                      <tr>
-                        <th>ID</th>
-                        <th>登录名</th>
-                        <th>操作</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @foreach($user as $row)
-                      <tr>
-                        <td>{{$row->id}}</td>
-                        <td>{{$row->name}}</td>
-                        <td class="td-manage" style="width:400px">
-                          <a style="text-decoration:none;" href="/adminrole/{{$row->id}}">
-                            <button type="button" class="btn btn-gradient-success btn-rounded btn-sm" title="分配角色"><font style="vertical-align: inherit;"><i class="mdi mdi-lead-pencil"></i>分配角色</font></button>
-                          </a>
-                          <a style="text-decoration:none;" href="/adminuser/{{$row->id}}/edit">
-                            <button type="button" class="btn btn-gradient-info btn-rounded btn-sm" title="修改信息"><font style="vertical-align: inherit;"><i class="mdi mdi-lead-pencil"></i>修改信息</font></button>
-                          </a>
-                          <form action="/adminuser/{{$row->id}}" method="post" style="display: inline-block;">
-                              {{csrf_field()}}
-                              {{method_field("DELETE")}}
-                              <button type="submit" class="btn btn-gradient-danger btn-rounded btn-sm del" title="删除此管理员"><font style="vertical-align: inherit;"><i class="mdi mdi-delete"></i>删除</font></button>
-                          </form>
-                        </td>
-                      </tr>
-                      @endforeach
-                    </tbody>
-                  </table>
-                  <div id="pagination" class="pagination">
-                    {{$user->appends($request)->render()}}
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-        <!-- </div> -->
-        <!-- content-wrapper ends -->
-        <!-- partial:/static/admins/node/partials/_footer.html -->
-       
-        <!-- partial -->
+        <div class="panel-title">
+          管理员列表
+        </div>
+
+        <div class="panel-body">
+          <!-- <p>Add <code>.table-bordered</code> for borders on all sides of the table and cells.</p> -->
+          <!-- <div id="example0_filter" class="dataTables_filter"> -->
+                <form action="/adminuser" method="get">
+                  <label>Search:<input type="search" name="keywords" value="{{$request['keywords'] or ''}}" placeholder="" aria-controls="example0"></label>
+                  <input type="submit" class="btn btn-rounded btn-default btn-sm" value="搜索">
+                </form>
+              <!-- </div> -->
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <td>ID</td>
+                <td>登录名</td>
+                <td style="width:300px;">操作</td>
+              </tr>
+            </thead>
+            <tbody>
+            @foreach($user as $row)
+              <tr>
+                <td>{{$row->id}}</td>
+                <td>{{$row->name}}</td>
+                <td>
+                    <a style="text-decoration:none;" href="/adminrole/{{$row->id}}">
+                        <button type="button" class="btn btn-rounded btn-default btn-sm" title="分配角色"><font style="vertical-align: inherit;">分配角色</font></button>
+                      </a>
+                      <a style="text-decoration:none;" href="/adminuser/{{$row->id}}/edit">
+                        <button type="button" class="btn btn-rounded btn-info btn-sm" title="修改信息"><font style="vertical-align: inherit;"><i class="fa fa-edit"></i>修改信息</font></button>
+                      </a>
+                      <form action="/adminuser/{{$row->id}}" method="post" style="display: inline-block;">
+                          {{csrf_field()}}
+                          {{method_field("DELETE")}}
+                          <button type="submit" class="btn btn-rounded btn-danger btn-sm" title="删除"><font style="vertical-align: inherit;"><i class="fa fa-trash"></i>删除</font></button>
+                      </form>
+                </td>
+              </tr>
+            @endforeach
+            </tbody>
+          </table>
+        </div>
+        <!-- <div class="dataTables_info" id="example0_info" role="status" aria-live="polite">
+         Showing 1 to 10 of 31 entries
+        </div> -->
+        <div class="dataTables_paginate paging_simple_numbers" id="example0_paginate" style="margin-left:45%;">
+        {{$user->appends($request)->render()}}
+        </div>
       </div>
-      <!-- main-panel ends -->
-    <!-- </div> -->
-    <!-- page-body-wrapper ends -->
-  <!-- </div> -->
-  <!-- container-scroller -->
-  <!-- plugins:js -->
-  <script src="/static/admins/vendors/js/vendor.bundle.base.js"></script>
-  <script src="/static/admins/vendors/js/vendor.bundle.addons.js"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page-->
-  <!-- End plugin js for this page-->
-  <!-- inject:js -->
-  <script src="/static/admins/node/js/off-canvas.js"></script>
-  <script src="/static/admins/node/js/misc.js"></script>
-  <script src="/static/admins/js/myPagination.js"></script>
-  <script type="text/javascript" src="/static/admins/js/layer/layer.js"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page-->
-  <!-- End custom js for this page-->
-</body>
-<script>
-  /*window.onload = function () {
-    new Page({
-        id: 'pagination',
-        pageTotal: count($user), //必填,总页数
-        pageAmount: 10,  //每页多少条
-        dataTotal: 500, //总共多少条数据
-        curPage:1, //初始页码,不填默认为1
-        pageSize: 5, //分页个数,不填默认为5
-        showPageTotalFlag:true, //是否显示数据统计,不填默认不显示
-        showSkipInputFlag:true, //是否支持跳转,不填默认不显示
-        getPage: function (page) {
-            //获取当前页数
-           console.log(page);
-        }
-    })
-}*/
-</script>
-</html>
+    </div>
+</div>
 @endsection
 @section('title','管理员列表')

@@ -7,15 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>后台登录</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="/static/admins/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="/static/admins/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="/static/Admin/vendor/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/static/Admin/vendor/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="/static/admins/css/style.css">
+  <link rel="stylesheet" href="/static/Admin/vendor/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="/static/admins/images/favicon.png" />
+  <link rel="shortcut icon" href="/static/Admin/vendor/favicon.png" />
 </head>
 
 <body>
@@ -26,7 +26,7 @@
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left p-5">
               <div class="brand-logo">
-                <img src="/static/admins/images/logo.svg">
+                <img src="/static/Admin/vendor/logo.svg">
               </div>
               <h4>Hello! let's get started</h4>
               <h6 class="font-weight-light">Sign in to continue.</h6>
@@ -51,12 +51,6 @@
                   <!-- <a class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" href="/admin">SIGN IN</a> -->
                 </div>
                 <div class="my-2 d-flex justify-content-between align-items-center">
-                  <div class="form-check">
-                    <label class="form-check-label text-muted">
-                      <input type="checkbox" class="form-check-input">
-                      Keep me signed in
-                    </label>
-                  </div>
                   <a href="#" class="auth-link text-black">Forgot password?</a>
                 </div>
                 <!-- <div class="mb-2">
@@ -78,12 +72,12 @@
   </div>
   <!-- container-scroller -->
   <!-- plugins:js -->
-  <script src="/static/admins/vendors/js/vendor.bundle.base.js"></script>
-  <script src="/static/admins/vendors/js/vendor.bundle.addons.js"></script>
+  <script src="/static/Admin/vendor/vendor.bundle.base.js"></script>
+  <script src="/static/Admin/vendor/vendor.bundle.addons.js"></script>
   <!-- endinject -->
   <!-- inject:js -->
-  <script src="/static/admins/js/off-canvas.js"></script>
-  <script src="/static/admins/js/misc.js"></script>
+  <script src="/static/Admin/vendor/off-canvas.js"></script>
+  <script src="/static/Admin/vendor/js/misc.js"></script>
   <!-- endinject -->
 </body>
 <script>
