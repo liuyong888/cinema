@@ -1,379 +1,626 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <!-- Required meta tags -->
+  <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="keywords" content="" />
   <title>@yield('title')</title>
-  <!-- plugins:css -->
-  <link rel="stylesheet" href="/static/admins/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="/static/admins/vendors/css/vendor.bundle.base.css">
-  <link rel="stylesheet" href="/static/admins/css/form.css">
-  <!-- endinject -->
-  <!-- inject:css -->
-  <link rel="stylesheet" href="/static/admins/css/style.css">
-  <link rel="stylesheet" href="/static/admins/css/panels.css">
-  <!-- endinject -->
-  <link rel="shortcut icon" href="/static/admins/images/favicon.png" />
-  <!-- <script type="text/javascript" src="/static/admins/js/layer/layer.js"></script> -->
-</head>
-<body>
-  <div class="container-scroller">
-    <!-- partial:partials/_navbar.html -->
-    <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="/admin"><img src="/static/admins/images/logo.svg" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="/static/admins/images/logo-mini.svg" alt="logo"/></a>
-      </div>
-      <div class="navbar-menu-wrapper d-flex align-items-stretch">
-        <div class="search-field d-none d-md-block">
-          <form class="d-flex align-items-center h-100" action="/adminmovies" method="get">
-            <div class="input-group">
-              <div class="input-group-prepend bg-transparent">
-                  <button type="submit"><i class="input-group-text border-0 mdi mdi-magnify"></i></button>               
-              </div>
-              <input type="text" class="form-control bg-transparent border-0" placeholder="Search projects" name="keywords" value="{{$request['keywords'] or ''}}">
-            </div>
-          </form>
-        </div>
-        <ul class="navbar-nav navbar-nav-right">
-          <li class="nav-item nav-profile dropdown">
-            <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <div class="nav-profile-img">
-                <img src="/static/admins/images/faces/face1.jpg" alt="image">
-                <span class="availability-status online"></span>             
-              </div>
-              <div class="nav-profile-text">
-                <p class="mb-1 text-black">David Greymaax</p>
-              </div>
-            </a>
-            <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item" href="#">
-                <i class="mdi mdi-cached mr-2 text-success"></i>
-                Activity Log
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">
-                <i class="mdi mdi-logout mr-2 text-primary"></i>
-                Signout
-              </a>
-            </div>
-          </li>
-          <li class="nav-item d-none d-lg-block full-screen-link">
-            <a class="nav-link">
-              <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
-            </a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <i class="mdi mdi-email-outline"></i>
-              <span class="count-symbol bg-warning"></span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
-              <h6 class="p-3 mb-0">Messages</h6>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                    <img src="/static/admins/images/faces/face4.jpg" alt="image" class="profile-pic">
-                </div>
-                <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                  <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Mark send you a message</h6>
-                  <p class="text-gray mb-0">
-                    1 Minutes ago
-                  </p>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                    <img src="/static/admins/images/faces/face2.jpg" alt="image" class="profile-pic">
-                </div>
-                <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                  <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Cregh send you a message</h6>
-                  <p class="text-gray mb-0">
-                    15 Minutes ago
-                  </p>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                    <img src="/static/admins/images/faces/face3.jpg" alt="image" class="profile-pic">
-                </div>
-                <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                  <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Profile picture updated</h6>
-                  <p class="text-gray mb-0">
-                    18 Minutes ago
-                  </p>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <h6 class="p-3 mb-0 text-center">4 new messages</h6>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-              <i class="mdi mdi-bell-outline"></i>
-              <span class="count-symbol bg-danger"></span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-              <h6 class="p-3 mb-0">Notifications</h6>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-success">
-                    <i class="mdi mdi-calendar"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                  <h6 class="preview-subject font-weight-normal mb-1">Event today</h6>
-                  <p class="text-gray ellipsis mb-0">
-                    Just a reminder that you have an event today
-                  </p>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-warning">
-                    <i class="mdi mdi-settings"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                  <h6 class="preview-subject font-weight-normal mb-1">Settings</h6>
-                  <p class="text-gray ellipsis mb-0">
-                    Update dashboard
-                  </p>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-info">
-                    <i class="mdi mdi-link-variant"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                  <h6 class="preview-subject font-weight-normal mb-1">Launch Admin</h6>
-                  <p class="text-gray ellipsis mb-0">
-                    New admin wow!
-                  </p>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <h6 class="p-3 mb-0 text-center">See all notifications</h6>
-            </div>
-          </li>
-          <li class="nav-item nav-logout d-none d-lg-block">
-            <a class="nav-link" href="/adminlogin">
-              <i class="mdi mdi-power"></i>
-            </a>
-          </li>
-          <li class="nav-item nav-settings d-none d-lg-block">
-            <a class="nav-link" href="#">
-              <i class="mdi mdi-format-line-spacing"></i>
-            </a>
-          </li>
-        </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-          <span class="mdi mdi-menu"></span>
-        </button>
-      </div>
-    </nav>
-    <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
-      <!-- partial:partials/_sidebar.html -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
-          <li class="nav-item nav-profile">
-            <a href="#" class="nav-link">
-              <div class="nav-profile-image">
-                <img src="/static/admins/images/faces/face1.jpg" alt="profile">
-                <span class="login-status online"></span> <!--change to offline or busy as needed-->              
-              </div>
-              <div class="nav-profile-text d-flex flex-column">
-                <span class="font-weight-bold mb-2">David Grey. H</span>
-                <span class="text-secondary text-small">Project Manager</span>
-              </div>
-              <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="\admin">
-              <span class="menu-title">首页</span>
-              <i class="mdi mdi-home menu-icon"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#member-basic" aria-expanded="false" aria-controls="member-basic">
-              <span class="menu-title">会员管理</span>
-              <i class="menu-arrow"></i>
-              <i class="mdi mdi-account"></i>
-            </a>
-            <div class="collapse" id="member-basic">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="\adminmember">会员列表</a></li>
-                <li class="nav-item"> <a class="nav-link" href="\adminmember\create">会员添加</a></li>
-              </ul>
-            </div>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#user-basic" aria-expanded="false" aria-controls="user-basic">
-              <span class="menu-title">管理员管理</span>
-              <i class="menu-arrow"></i>
-              <i class="mdi mdi-account"></i>
-            </a>
-            <div class="collapse" id="user-basic">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="\adminuser\create">管理员添加</a></li>
-                <li class="nav-item"> <a class="nav-link" href="\adminuser">管理员列表</a></li>
-                <li class="nav-item"> <a class="nav-link" href="\rolelist\create">角色添加</a></li>
-                <li class="nav-item"> <a class="nav-link" href="\rolelist">角色列表</a></li>
-                <li class="nav-item"> <a class="nav-link" href="\authlist\create">权限添加</a></li>
-                <li class="nav-item"> <a class="nav-link" href="\authlist">权限列表</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-<<<<<<< HEAD
-            <a class="nav-link" data-toggle="collapse" href="#user-basic" aria-expanded="false" aria-controls="user-basic">
-              <span class="menu-title">电影管理</span>
-              <i class="menu-arrow"></i>
-              <i class="mdi mdi-account"></i>
-=======
-            <a class="nav-link" data-toggle="collapse" href="#cinemas-basic" aria-expanded="false" aria-controls="cinemas-basic">
-              <span class="menu-title">电影院列表</span>
-              <i class="menu-arrow"></i>
-              <i class="mdi mdi-account"></i>
-            </a>
-            <div class="collapse" id="cinemas-basic">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="/admincinemas">影院列表</a></li>
-                <li class="nav-item"> <a class="nav-link" href="/admincinemas/create">影院添加</a></li>
-              </ul>
-            </div>
-          </li>          
-          <li class="nav-item">
-            <a class="nav-link" href="pages/icons/mdi.html">
-              <span class="menu-title">Icons</span>
-              <i class="mdi mdi-contacts menu-icon"></i>
->>>>>>> b8d9675ba90410ac1f250acacd773acba539e42e
-            </a>
-            <div class="collapse" id="user-basic">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="\adminmovies">电影列表</a></li>
-                <li class="nav-item"> <a class="nav-link" href="\adminmovies\create">电影添加</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/forms/basic_elements.html">
-              <span class="menu-title">Forms</span>
-              <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/charts/chartjs.html">
-              <span class="menu-title">Charts</span>
-              <i class="mdi mdi-chart-bar menu-icon"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/tables/basic-table.html">
-              <span class="menu-title">Tables</span>
-              <i class="mdi mdi-table-large menu-icon"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
-              <span class="menu-title">Sample Pages</span>
-              <i class="menu-arrow"></i>
-              <i class="mdi mdi-medical-bag menu-icon"></i>
-            </a>
-            <div class="collapse" id="general-pages">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
-              </ul>
-              </div>
-          </li>
-          <div class="tlinks">Collect from <a href="http://www.cssmoban.com/" >企业网站模板</a></div>
-          <li class="nav-item sidebar-actions">
-            <span class="nav-link">
-              <div class="border-bottom">
-                <h6 class="font-weight-normal mb-3">Projects</h6>                
-              </div>
-              <button class="btn btn-block btn-lg btn-gradient-primary mt-4">+ Add a project</button>
-              <div class="mt-4">
-                <div class="border-bottom">
-                  <p class="text-secondary">Categories</p>                  
-                </div>
-                <ul class="gradient-bullet-list mt-4">
-                  <li>Free</li>
-                  <li>Pro</li>
-                </ul>
-              </div>
-            </span>
-          </li>
-        </ul>
-      </nav>
-      <!-- partial -->
-      <div class="main-panel">
-      	@if(session('success'))
-            <div class="mws-form-message success" id="success">
-               {{session('success')}}
-            </div>
-           @endif
-           
-         @if(session('error'))    
-            <div class="mws-form-message warning" id="warning">
-                {{session('error')}}
-            </div>
-        @endif
-       @section('content')
-       @show
-        <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
-        <footer class="footer">
-          <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2017 <a href="" target="_blank">BootstrapDash</a>. All rights reserved. </span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
-              <i class="mdi mdi-heart text-danger"></i> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span>
-          </div>
-        </footer>
-        <!-- partial -->
-      </div>
-      <!-- main-panel ends -->
-    </div>
-    <!-- page-body-wrapper ends -->
-  </div>
-  <!-- container-scroller -->
 
-  <!-- plugins:js -->
-  <script src="/static/admins/vendors/js/vendor.bundle.base.js"></script>
-  <script src="/static/admins/vendors/js/vendor.bundle.addons.js"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page-->
-  <!-- End plugin js for this page-->
-  <!-- inject:js -->
-  <script src="/static/admins/js/off-canvas.js"></script>
-  <script src="/static/admins/js/misc.js"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page-->
-  <script src="/static/admins/js/dashboard.js"></script>
-  <script src="/static/admins/js/bootstrap.min.js"></script>
-  <!-- End custom js for this page-->
-</body>
+  <!-- ========== Css Files ========== -->
+  <link href="/static/Admin/css/root.css" rel="stylesheet">
+
+
+  </head>
+  <body>
+  <!-- Start Page Loading -->
+  <div class="loading"><img src="/static/Admin/img/loading.gif" alt="loading-img"></div>
+  <!-- End Page Loading -->
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+  <!-- START TOP -->
+  <div id="top" class="clearfix">
+
+    <!-- Start App Logo -->
+    <div class="applogo">
+      <a href="index.html" class="logo">Modern</a>
+    </div>
+    <!-- End App Logo -->
+    
+     <!-- Start Sidebar Show Hide Button -->
+    <a href="#" class="sidebar-open-button"><i class="fa fa-bars"></i></a>
+    <a href="#" class="sidebar-open-button-mobile"><i class="fa fa-bars"></i></a>
+    <!-- End Sidebar Show Hide Button -->
+    
+     <!-- page title -->
+    <h1 class="title">Dashboard</h1>
+      <!-- End page title -->
+
+   
+    
+    
+
+   
+    
+     
+
+
+    <!-- Start Sidepanel Show-Hide Button -->
+    <a href="#sidepanel" class="sidepanel-open-button"><i class="fa fa-th-large"></i></a>
+    <!-- End Sidepanel Show-Hide Button -->
+
+    <!-- Start Top Right -->
+    <ul class="top-right">
+ <!-- Start Searchbox -->
+    <form class="searchform">
+      <input type="text" class="searchbox" id="searchbox" placeholder="Search">
+      <span class="searchbutton"><i class="fa fa-search"></i></span>
+    </form>
+    <!-- End Searchbox -->
+    <li class="dropdown link">
+      <a href="#" data-toggle="dropdown" class="dropdown-toggle hdbutton">Add New <span class="caret"></span></a>
+        <ul class="dropdown-menu dropdown-menu-list">
+          <li><a href="#"><i class="fa falist fa-suitcase"></i>Product</a></li>
+          <li><a href="#"><i class="fa falist fa-comments-o"></i>Blog Post</a></li>
+          <li><a href="#"><i class="fa falist fa-image"></i>Image Gallery</a></li>
+          <li><a href="#"><i class="fa falist fa-video-camera"></i>Video Gallery</a></li>
+        </ul>
+    </li>
+
+    <li class="link">
+      <a href="#" class="notifications">6</a>
+    </li>
+
+    
+
+    </ul>
+    <!-- End Top Right -->
+
+  </div>
+  <!-- END TOP -->
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+
+
+<!-- //////////////////////////////////////////////////////////////////////////// --> 
+<!-- START SIDEBAR -->
+<div class="sidebar clearfix">
+<div class="dropdown link">
+      <a href="#" data-toggle="dropdown" class="dropdown-toggle profilebox"><img src="/static/Admin/img/profileimg.png" alt="img">
+     <div class="user-name"><b>Stephen Doe</b><span class="caret"></span></div></a>
+        <ul class="dropdown-menu dropdown-menu-list dropdown-menu-right">
+          <li role="presentation" class="dropdown-header">Profile</li>
+          <li><a href="#"><i class="fa falist fa-envelope"></i>Inbox<span class="badge label-danger">4</span></a></li>
+          <li><a href="#"><i class="fa falist fa-file-o"></i>Files</a></li>
+          <li><a href="#"><i class="fa falist fa-gear"></i>Settings</a></li>
+          <li><a href="#"><i class="fa falist fa-lock"></i> Lockscreen</a></li>
+          <li><a href="#"><i class="fa falist fa-power-off"></i> Logout</a></li>
+        </ul>
+       
+       
+    </div>
+<ul class="sidebar-panel nav">
+  <li class="sidetitle">MAIN</li>
+  <li><a href="/admin"><span class="icon color5"><i class="fa fa-home"></i></span>首页<span class="label label-red">2</span></a></li>
+  <li><a href="#"><span class="icon color7"><i class="fa fa-flask"></i></span>会员管理<span class="caret"></span></a>
+    <ul>
+      <li><a href="/adminmember">会员列表</a></li>
+      <li><a href="/adminmember/create">会员添加</a></li>
+    </ul>
+  </li>
+  <li><a href="#"><span class="icon color8"><i class="fa fa-flask"></i></span>管理员管理<span class="caret"></span></a>
+    <ul>
+      <li><a href="/adminuser">管理员列表</a></li>
+      <li><a href="/adminuser/create">管理员添加</a></li>
+    </ul>
+  </li>
+  <!-- <li><a href="charts.html"><span class="icon color8"><i class="fa fa-bar-chart"></i></span>Charts</a></li> -->
+  <li><a href="#"><span class="icon color9"><i class="fa fa-th"></i></span>影院管理<span class="caret"></span></a>
+    <ul>
+      <li><a href="/admincinemas">影院列表</a></li>
+      <li><a href="/admincinemas/create">影院添加</a></li>
+    </ul>
+  </li>
+  <li><a href="#"><span class="icon color9"><i class="fa fa-th"></i></span>场次管理<span class="caret"></span></a>
+    <ul>
+      <li><a href="/adminrelss">场次列表</a></li>
+      <li><a href="/adminrelss/create">场次添加</a></li>
+    </ul>
+  </li>
+  <li><a href="#"><span class="icon color10"><i class="fa fa-check-square-o"></i></span>Forms<span class="caret"></span></a>
+    <ul>
+      <li><a href="form-elements.html">Form Elements</a></li>
+      <li><a href="layouts.html">Form Layouts</a></li>
+      <li><a href="text-editors.html">Text Editors</a></li>
+    </ul>
+  </li>
+  <li><a href="widgets.html"><span class="icon color11"><i class="fa fa-diamond"></i></span>Widgets<span class="label label-blue">7</span></a></li>
+  <li><a href="calendar.html"><span class="icon color8"><i class="fa fa-calendar-o"></i></span>Calendar<span class="label label-danger">NEW</span></a></li>
+
+  <li><a href="#"><span class="icon color14"><i class="fa fa-paper-plane-o"></i></span>Pages<span class="caret"></span></a>
+    <ul>
+      <li><a href="social-profile.html">Social Profile</a></li>
+      <li><a href="invoice.html">Invoice<span class="label label-danger">NEW</span></a></li>
+      <li><a href="login.html">Login Page</a></li>
+      <li><a href="register.html">Register</a></li>
+      <li><a href="forgot-password.html">Forgot Password</a></li>
+      <li><a href="lockscreen.html">Lockscreen</a></li>
+      <li><a href="blank.html">Blank Page</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="404.html">404 Page</a></li>
+      <li><a href="500.html">500 Page</a></li>
+    </ul>
+  </li>
+</ul>
+
+<ul class="sidebar-panel nav">
+  <li class="sidetitle">MORE</li>
+    <li><a href="typography.html"><span class="icon color12"><i class="fa fa-font"></i></span>Typography</a></li>
+  <li><a href="grid.html"><span class="icon color15"><i class="fa fa-columns"></i></span>Grid</a></li>
+  <li><a href="customizable.html"><span class="icon color10"><i class="fa fa-lightbulb-o"></i></span>Customizable</a></li>
+  <li><a href="helper-classes.html"><span class="icon color8"><i class="fa fa-code"></i></span>Helper Classes</a></li>
+</ul>
+
+
+
+</div>
+<!-- END SIDEBAR -->
+<!-- //////////////////////////////////////////////////////////////////////////// --> 
+
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+<!-- START CONTENT -->
+<div class="content">
+
+ 
+
+
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+<!-- START CONTAINER -->
+<div class="container-widget">
+
+  <!-- Start Top Stats -->
+  @if(session('success'))
+      <div class="Modern-alert Modern-alert-icon Modern-alert-click alert3">
+          <i class="fa fa-check"></i>
+          {{session('success')}}
+        </div>
+    
+     @endif
+     
+   @if(session('error'))   
+    <div class="Modern-alert Modern-alert-icon Modern-alert-click alert5">
+        <i class="fa fa-warning"></i>
+        {{session('error')}}
+      </div> 
+      
+  @endif
+  @section('content')
+  @show
+  
+  <!-- End Top Stats -->
+
+
+  <!-- Start First Row -->
+  
+  <!-- End Fifth Row -->
+
+
+
+
+</div>
+<!-- END CONTAINER -->
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+
+
+
+
+</div>
+<!-- End Content -->
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+
+
+<!-- //////////////////////////////////////////////////////////////////////////// --> 
+<!-- START SIDEPANEL -->
+<div role="tabpanel" class="sidepanel">
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#today" aria-controls="today" role="tab" data-toggle="tab">TODAY</a></li>
+    <li role="presentation"><a href="#tasks" aria-controls="tasks" role="tab" data-toggle="tab">TASKS</a></li>
+    <li role="presentation"><a href="#chat" aria-controls="chat" role="tab" data-toggle="tab">CHAT</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+
+    <!-- Start Today -->
+    <div role="tabpanel" class="tab-pane active" id="today">
+
+      <div class="sidepanel-m-title">
+        Today
+        <span class="left-icon"><a href="#"><i class="fa fa-refresh"></i></a></span>
+        <span class="right-icon"><a href="#"><i class="fa fa-file-o"></i></a></span>
+      </div>
+
+      <div class="gn-title">NEW</div>
+
+      <ul class="list-w-title">
+        <li>
+          <a href="#">
+            <span class="label label-danger">ORDER</span>
+            <span class="date">9 hours ago</span>
+            <h4>New Design</h4>
+           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="label label-success">COMMENT</span>
+            <span class="date">14 hours ago</span>
+            <h4>Stephen Doe</h4>
+           Sed accumsan venenatis lectus sed sollicitudin. Duis in odio ex.
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="label label-info">Job Meeting</span>
+            <span class="date">at 2:30 PM</span>
+            <h4>Developer Team</h4>
+          Sed elementum varius enim. In vel tincidunt lorem.
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="label label-warning">EVENT</span>
+            <span class="date">3 days left</span>
+            <h4>New year Party</h4>
+            Etiam auctor porta augue sit amet facilisis. Sed libero nisi, scelerisque.
+          </a>
+        </li>
+      </ul>
+
+    </div>
+    <!-- End Today -->
+
+    <!-- Start Tasks -->
+    <div role="tabpanel" class="tab-pane" id="tasks">
+
+      <div class="sidepanel-m-title">
+        To-do List
+        <span class="left-icon"><a href="#"><i class="fa fa-pencil"></i></a></span>
+        <span class="right-icon"><a href="#"><i class="fa fa-trash"></i></a></span>
+      </div>
+
+      <div class="gn-title">TODAY</div>
+
+      <ul class="todo-list">
+        <li class="checkbox checkbox-primary">
+          <input id="checkboxside1" type="checkbox"><label for="checkboxside1">Pellentesque habitant morbi</label>
+        </li>
+        
+        <li class="checkbox checkbox-primary">
+          <input id="checkboxside2" type="checkbox"><label for="checkboxside2"><b>May 12, 6:30 pm</b> Meeting with Team</label>
+        </li>
+        
+        <li class="checkbox checkbox-warning">
+          <input id="checkboxside3" type="checkbox"><label for="checkboxside3">Malesuada fames ac turpis egestase</label>
+        </li>
+        
+        <li class="checkbox checkbox-info">
+          <input id="checkboxside4" type="checkbox"><label for="checkboxside4">Tristique senectus et netus</label>
+        </li>
+        
+        <li class="checkbox checkbox-danger">
+          <input id="checkboxside5" type="checkbox"><label for="checkboxside5">Consectetur adipiscing elit</label>
+        </li>
+      </ul>
+
+      <div class="gn-title">TOMORROW</div>
+      <ul class="todo-list">
+        <li class="checkbox checkbox-warning">
+          <input id="checkboxside6" type="checkbox"><label for="checkboxside6">Lorem ipsum dolor sit amet</label>
+        </li>
+        
+        <li class="checkbox checkbox-success">
+          <input id="checkboxside7" type="checkbox"><label for="checkboxside7">Update regularly with offers</label>
+        </li>
+        
+        <li class="checkbox checkbox-info">
+          <input id="checkboxside8" type="checkbox"><label for="checkboxside8">Tristique senectus et netus</label>
+        </li>
+
+      </ul>
+    </div>    
+    <!-- End Tasks -->
+
+    <!-- Start Chat -->
+    <div role="tabpanel" class="tab-pane" id="chat">
+
+      <div class="sidepanel-m-title">
+        Friend List
+        <span class="left-icon"><a href="#"><i class="fa fa-pencil"></i></a></span>
+        <span class="right-icon"><a href="#"><i class="fa fa-trash"></i></a></span>
+      </div>
+
+      <div class="gn-title">ONLINE MEMBERS (3)</div>
+      <ul class="group">
+        <li class="member"><a href="#"><img src="/static/Admin/img/profileimg.png" alt="img"><b>John Doe</b>London</a><span class="status online"></span></li>
+        <li class="member"><a href="#"><img src="/static/Admin/img/profileimg2.png" alt="img"><b>Sarah Smith</b>New York</a><span class="status busy"></span></li>
+        <li class="member"><a href="#"><img src="/static/Admin/img/profileimg3.png" alt="img"><b>Mark Doe</b>New York</a><span class="status away"></span></li>
+        <li class="member"><a href="#"><img src="/static/Admin/img/profileimg4.png" alt="img"><b>Kendra Hall</b>California</a><span class="status online"></span></li>
+      </ul>
+
+      <div class="gn-title">OFFLINE MEMBERS (8)</div>
+     <ul class="group">
+        <li class="member"><a href="#"><img src="/static/Admin/img/profileimg5.png" alt="img"><b>Stephen Doe</b>New York</a><span class="status offline"></span></li>
+        <li class="member"><a href="#"><img src="/static/Admin/img/profileimg6.png" alt="img"><b>Sarah Smith</b>Melborne</a><span class="status offline"></span></li>
+      </ul>
+
+      <form class="search">
+        <input type="text" class="form-control" placeholder="Search a Friend...">
+      </form>
+    </div>
+    <!-- End Chat -->
+
+  </div>
+
+</div>
+<!-- END SIDEPANEL -->
+<!-- //////////////////////////////////////////////////////////////////////////// --> 
+<!-- Start Footer -->
+<div class="row footer">
+  <div class="col-md-6 text-left">
+  Copyright &copy; 2018.Company name All rights reserved.<a target="_blank" href="http://www.aspku.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+  </div>
+  <div class="col-md-6 text-right">
+    
+  </div> 
+</div>
+<!-- End Footer -->
+
+<!-- ================================================
+jQuery Library
+================================================ -->
+<script type="text/javascript" src="/static/Admin/js/jquery.min.js"></script>
+
+<!-- ================================================
+Bootstrap Core JavaScript File
+================================================ -->
+<script src="/static/Admin/js/bootstrap/bootstrap.min.js"></script>
+
+<!-- ================================================
+Plugin.js - Some Specific JS codes for Plugin Settings
+================================================ -->
+<script type="text/javascript" src="/static/Admin/js/plugins.js"></script>
+
+<!-- ================================================
+Bootstrap Select
+================================================ -->
+<script type="text/javascript" src="/static/Admin/js/bootstrap-select/bootstrap-select.js"></script>
+
+<!-- ================================================
+Bootstrap Toggle
+================================================ -->
+<script type="text/javascript" src="/static/Admin/js/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+
+<!-- ================================================
+Bootstrap WYSIHTML5
+================================================ -->
+<!-- main file -->
+<script type="text/javascript" src="/static/Admin/js/bootstrap-wysihtml5/wysihtml5-0.3.0.min.js"></script>
+<!-- bootstrap file -->
+<script type="text/javascript" src="/static/Admin/js/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
+
+<!-- ================================================
+Summernote
+================================================ -->
+<script type="text/javascript" src="/static/Admin/js/summernote/summernote.min.js"></script>
+
+<!-- ================================================
+Flot Chart
+================================================ -->
+<!-- main file -->
+<script type="text/javascript" src="/static/Admin/js/flot-chart/flot-chart.js"></script>
+<!-- time.js -->
+<script type="text/javascript" src="/static/Admin/js/flot-chart/flot-chart-time.js"></script>
+<!-- stack.js -->
+<script type="text/javascript" src="/static/Admin/js/flot-chart/flot-chart-stack.js"></script>
+<!-- pie.js -->
+<script type="text/javascript" src="/static/Admin/js/flot-chart/flot-chart-pie.js"></script>
+<!-- demo codes -->
+<script type="text/javascript" src="/static/Admin/js/flot-chart/flot-chart-plugin.js"></script>
+
+<!-- ================================================
+Chartist
+================================================ -->
+<!-- main file -->
+<script type="text/javascript" src="/static/Admin/js/chartist/chartist.js"></script>
+<!-- demo codes -->
+<script type="text/javascript" src="/static/Admin/js/chartist/chartist-plugin.js"></script>
+
+<!-- ================================================
+Easy Pie Chart
+================================================ -->
+<!-- main file -->
+<script type="text/javascript" src="/static/Admin/js/easypiechart/easypiechart.js"></script>
+<!-- demo codes -->
+<script type="text/javascript" src="/static/Admin/js/easypiechart/easypiechart-plugin.js"></script>
+
+<!-- ================================================
+Sparkline
+================================================ -->
+<!-- main file -->
+<script type="text/javascript" src="/static/Admin/js/sparkline/sparkline.js"></script>
+<!-- demo codes -->
+<script type="text/javascript" src="/static/Admin/js/sparkline/sparkline-plugin.js"></script>
+
+<!-- ================================================
+Rickshaw
+================================================ -->
+<!-- d3 -->
+<script src="/static/Admin/js/rickshaw/d3.v3.js"></script>
+<!-- main file -->
+<script src="/static/Admin/js/rickshaw/rickshaw.js"></script>
+<!-- demo codes -->
+<script src="/static/Admin/js/rickshaw/rickshaw-plugin.js"></script>
+
+<!-- ================================================
+Data Tables
+================================================ -->
+<script src="/static/Admin/js/datatables/datatables.min.js"></script>
+
+<!-- ================================================
+Sweet Alert
+================================================ -->
+<script src="/static/Admin/js/sweet-alert/sweet-alert.min.js"></script>
+
+<!-- ================================================
+Modern Alert
+================================================ -->
+<script src="/static/Admin/js/Modern-alert/main.js"></script>
+
+<!-- ================================================
+Gmaps
+================================================ -->
+<!---<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script src="/static/Admin/js/gmaps/gmaps.js"></script>
+<script src="/static/Admin/js/gmaps/gmaps-plugin.js"></script>--->
+
+<!-- ================================================
+jQuery UI
+================================================ -->
+<script type="text/javascript" src="/static/Admin/js/jquery-ui/jquery-ui.min.js"></script>
+
+<!-- ================================================
+Moment.js
+================================================ -->
+<script type="text/javascript" src="/static/Admin/js/moment/moment.min.js"></script>
+
+<!-- ================================================
+Full Calendar
+================================================ -->
+<script type="text/javascript" src="/static/Admin/js/full-calendar/fullcalendar.js"></script>
+
+<!-- ================================================
+Bootstrap Date Range Picker
+================================================ -->
+<script type="text/javascript" src="/static/Admin/js/date-range-picker/daterangepicker.js"></script>
+
+<!-- ================================================
+Below codes are only for index widgets
+================================================ -->
+<!-- Today Sales -->
 <script>
-	$("#success").click(function(){
-		$(this).fadeOut("slow");
-	});
-  $("#warning").click(function(){
-    $(this).fadeOut("slow");
-  });
+
+// set up our data series with 50 random data points
+
+var seriesData = [ [], [], [] ];
+var random = new Rickshaw.Fixtures.RandomData(20);
+
+for (var i = 0; i < 110; i++) {
+  random.addData(seriesData);
+}
+
+// instantiate our graph!
+
+/* ======================================================================
+TIME SCALE
+====================================================================== */
+var seriesData = [ [], [], []];
+var random = new Rickshaw.Fixtures.RandomData(1540000);
+
+for (var i = 0; i < 200; i++) {
+    random.addData(seriesData);
+}
+
+var graph = new Rickshaw.Graph( {
+  element: document.getElementById("rickshaw-timescale"),
+  renderer: 'area',
+  series: [
+    {
+      color: "#3f51b5",
+      data: seriesData[0],
+      name: 'Technology'
+    }, 
+    
+    {
+      color: "#7183e8",
+      data: seriesData[1],
+      name: 'Creative'
+    }, 
+    
+    {
+      color: "#aab6fc",
+      data: seriesData[2],
+      name: 'Ecommerce'
+    }
+  ]
+} );
+
+graph.render();
+
+var hoverDetail = new Rickshaw.Graph.HoverDetail( {
+  graph: graph,
+  formatter: function(series, x, y) {
+    var date = '<span class="date">' + new Date(x * 1000).toUTCString() + '</span>';
+    var swatch = '<span class="detail_swatch" style="background-color: ' + series.color + '"></span>';
+    var content = swatch + series.name + ": " + parseInt(y) + '<br>' + date;
+    return content;
+  }
+} );
+
 </script>
+
+<!-- Today Activity -->
+<script>
+// set up our data series with 50 random data points
+
+var seriesData = [ [], [], [] ];
+var random = new Rickshaw.Fixtures.RandomData(20);
+
+for (var i = 0; i < 50; i++) {
+  random.addData(seriesData);
+}
+
+// instantiate our graph!
+
+var graph = new Rickshaw.Graph( {
+  element: document.getElementById("rickshaw-bars"),
+  renderer: 'bar',
+  series: [
+    {
+      color: "#303f9f",
+      data: seriesData[0],
+      name: 'Job'
+    }, {
+      color: "#ef4836",
+      data: seriesData[1],
+      name: 'Feed'
+    }
+  ]
+} );
+
+graph.render();
+
+var hoverDetail = new Rickshaw.Graph.HoverDetail( {
+  graph: graph,
+  formatter: function(series, x, y) {
+    var date = '<span class="date">' + new Date(x * 1000).toUTCString() + '</span>';
+    var swatch = '<span class="detail_swatch" style="background-color: ' + series.color + '"></span>';
+    var content = swatch + series.name + ": " + parseInt(y) + '<br>' + date;
+    return content;
+  }
+} );
+</script>
+
+<script>
+var options = {
+  scaleColor: false,
+  trackColor: 'rgba(255, 255, 255, 0.5)',
+  barColor: '#fff',
+  lineWidth: 8,
+  lineCap: 'butt',
+};
+</script>
+
+</body>
 </html>

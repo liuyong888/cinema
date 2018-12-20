@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use DB;
 
 class YingyuanController extends Controller
 {
@@ -12,10 +13,22 @@ class YingyuanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    // 影院首页
+    public function index(Request $request)
+    {   
+        $k=$request->input('keywords');
+        $data=DB::table('cinemas')->where('name','like','%'.$k.'%')->paginate(1);
+        // foreach($data as $k=>$v){
+        //     $arr_data[$k]=$v;
+        // }
+        // dd($data,$arr_data);
+        // dd($arr_data);
+        foreach($data as $k=>$v){
+            $data[$k]->min_price=DB::table('relss')->where('c_id','=',$arr_data[$k]->id)->min('m_price');
+        }
+        // dd($arr_data);
         //加载影院页面
-        return view("Home.Yingyuan.yingyuan");
+        return view("Home.Yingyuan.yingyuan",['data'=>$arr_data,'request'=>$request->all()]);
     }
 
     /**

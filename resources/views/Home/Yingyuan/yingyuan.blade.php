@@ -59,229 +59,17 @@
 </head>
 <body>
     <div class="container" id="app" class="page-cinemas/list" >
-  <div class="tags-panel">
+  <!-- <div class="tags-panel">
     <ul class="tags-lines">
-    
-      
-        <li class="tags-line">
-          <div class="tags-title">日期:</div>
-          <ul class="tags">
-            <li class="active">
-              <a data-act="tag-click" 
-                data-val="{TagName:'2018-12-10'}"
-                data-bid="b_beyqev3w"
-                href="?movieId=249342&amp;showDate=2018-12-10"
-              >
-                今天 12月10
-              </a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" 
-                data-val="{TagName:'2018-12-11'}"
-                data-bid="b_beyqev3w"
-                href="?movieId=249342&amp;showDate=2018-12-11"
-              >
-                明天 12月11
-              </a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" 
-                data-val="{TagName:'2018-12-12'}"
-                data-bid="b_beyqev3w"
-                href="?movieId=249342&amp;showDate=2018-12-12"
-              >
-                后天 12月12
-              </a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" 
-                data-val="{TagName:'2018-12-13'}"
-                data-bid="b_beyqev3w"
-                href="?movieId=249342&amp;showDate=2018-12-13"
-              >
-                周四 12月13
-              </a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" 
-                data-val="{TagName:'2018-12-14'}"
-                data-bid="b_beyqev3w"
-                href="?movieId=249342&amp;showDate=2018-12-14"
-              >
-                周五 12月14
-              </a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" 
-                data-val="{TagName:'2018-12-15'}"
-                data-bid="b_beyqev3w"
-                href="?movieId=249342&amp;showDate=2018-12-15"
-              >
-                周六 12月15
-              </a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" 
-                data-val="{TagName:'2018-12-16'}"
-                data-bid="b_beyqev3w"
-                href="?movieId=249342&amp;showDate=2018-12-16"
-              >
-                周日 12月16
-              </a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" 
-                data-val="{TagName:'2018-12-17'}"
-                data-bid="b_beyqev3w"
-                href="?movieId=249342&amp;showDate=2018-12-17"
-              >
-                周一 12月17
-              </a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" 
-                data-val="{TagName:'2018-12-18'}"
-                data-bid="b_beyqev3w"
-                href="?movieId=249342&amp;showDate=2018-12-18"
-              >
-                周二 12月18
-              </a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" 
-                data-val="{TagName:'2018-12-19'}"
-                data-bid="b_beyqev3w"
-                href="?movieId=249342&amp;showDate=2018-12-19"
-              >
-                周三 12月19
-              </a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" 
-                data-val="{TagName:'2018-12-20'}"
-                data-bid="b_beyqev3w"
-                href="?movieId=249342&amp;showDate=2018-12-20"
-              >
-                周四 12月20
-              </a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" 
-                data-val="{TagName:'2018-12-22'}"
-                data-bid="b_beyqev3w"
-                href="?movieId=249342&amp;showDate=2018-12-22"
-              >
-                周六 12月22
-              </a>
-            </li>
-          </ul>
-        </li>
-
-      
         <li class="tags-line tags-line-border" data-type="brand">
           <div class="tags-title">品牌:</div>
           <ul class="tags">
             <li class="active">
               <a data-act="tag-click" data-val="{TagName:'全部', city_id:55}" data-id="-1" href="?movieId=249342&amp;brandId=-1" data-bid="b_n6nqkt97">全部</a>
-            </li>
+            </li>           
             <li class="">
-              <a data-act="tag-click" data-val="{TagName:'幸福蓝海国际影城', city_id:55}" data-id="30053" href="?movieId=249342&amp;brandId=30053" data-bid="b_n6nqkt97">幸福蓝海国际影城</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'万达影城', city_id:55}" data-id="102642" href="?movieId=249342&amp;brandId=102642" data-bid="b_n6nqkt97">万达影城</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'卢米埃影城', city_id:55}" data-id="292030" href="?movieId=249342&amp;brandId=292030" data-bid="b_n6nqkt97">卢米埃影城</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'金逸影城', city_id:55}" data-id="1079568" href="?movieId=249342&amp;brandId=1079568" data-bid="b_n6nqkt97">金逸影城</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'中影国际影城', city_id:55}" data-id="23745" href="?movieId=249342&amp;brandId=23745" data-bid="b_n6nqkt97">中影国际影城</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'横店电影城', city_id:55}" data-id="26045" href="?movieId=249342&amp;brandId=26045" data-bid="b_n6nqkt97">横店电影城</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'UME国际影城', city_id:55}" data-id="24071" href="?movieId=249342&amp;brandId=24071" data-bid="b_n6nqkt97">UME国际影城</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'星美国际影城', city_id:55}" data-id="30032" href="?movieId=249342&amp;brandId=30032" data-bid="b_n6nqkt97">星美国际影城</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'耀莱成龙国际影城', city_id:55}" data-id="30227" href="?movieId=249342&amp;brandId=30227" data-bid="b_n6nqkt97">耀莱成龙国际影城</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'星河国际影城', city_id:55}" data-id="30018" href="?movieId=249342&amp;brandId=30018" data-bid="b_n6nqkt97">星河国际影城</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'大地影院', city_id:55}" data-id="384262" href="?movieId=249342&amp;brandId=384262" data-bid="b_n6nqkt97">大地影院</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'海上国际影城', city_id:55}" data-id="25737" href="?movieId=249342&amp;brandId=25737" data-bid="b_n6nqkt97">海上国际影城</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'艾米1895影院', city_id:55}" data-id="954428" href="?movieId=249342&amp;brandId=954428" data-bid="b_n6nqkt97">艾米1895影院</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'沃美影城', city_id:55}" data-id="29462" href="?movieId=249342&amp;brandId=29462" data-bid="b_n6nqkt97">沃美影城</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'SFC上影影城', city_id:55}" data-id="2880988" href="?movieId=249342&amp;brandId=2880988" data-bid="b_n6nqkt97">SFC上影影城</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'保利国际影城', city_id:55}" data-id="24472" href="?movieId=249342&amp;brandId=24472" data-bid="b_n6nqkt97">保利国际影城</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'CGV影城', city_id:55}" data-id="2020418" href="?movieId=249342&amp;brandId=2020418" data-bid="b_n6nqkt97">CGV影城</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'其他', city_id:55}" data-id="0" href="?movieId=249342&amp;brandId=0" data-bid="b_n6nqkt97">其他</a>
-            </li>
-          </ul>
-        </li>
-        <li class="tags-line tags-line-border" data-type="district">
-          <div class="tags-title">行政区:</div>
-          <ul class="tags">
-            <li class="active">
-              <a data-act="tag-click" data-val="{TagName:'全部', city_id:55}" data-id="-1" href="?movieId=249342&amp;districtId=-1" data-bid="b_ofl973zc">全部</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'地铁附近', city_id:55}" data-id="-2" href="?movieId=249342&amp;districtId=-2" data-bid="b_ofl973zc">地铁附近</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'鼓楼区', city_id:55}" data-id="62" href="?movieId=249342&amp;districtId=62" data-bid="b_ofl973zc">鼓楼区</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'江宁区', city_id:55}" data-id="273" href="?movieId=249342&amp;districtId=273" data-bid="b_ofl973zc">江宁区</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'浦口区', city_id:55}" data-id="1063" href="?movieId=249342&amp;districtId=1063" data-bid="b_ofl973zc">浦口区</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'六合区', city_id:55}" data-id="835" href="?movieId=249342&amp;districtId=835" data-bid="b_ofl973zc">六合区</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'栖霞区', city_id:55}" data-id="833" href="?movieId=249342&amp;districtId=833" data-bid="b_ofl973zc">栖霞区</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'雨花台区', city_id:55}" data-id="834" href="?movieId=249342&amp;districtId=834" data-bid="b_ofl973zc">雨花台区</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'玄武区', city_id:55}" data-id="63" href="?movieId=249342&amp;districtId=63" data-bid="b_ofl973zc">玄武区</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'秦淮区', city_id:55}" data-id="66" href="?movieId=249342&amp;districtId=66" data-bid="b_ofl973zc">秦淮区</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'建邺区', city_id:55}" data-id="64" href="?movieId=249342&amp;districtId=64" data-bid="b_ofl973zc">建邺区</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'溧水区', city_id:55}" data-id="836" href="?movieId=249342&amp;districtId=836" data-bid="b_ofl973zc">溧水区</a>
-            </li>
-            <li class="">
-              <a data-act="tag-click" data-val="{TagName:'高淳区', city_id:55}" data-id="2709" href="?movieId=249342&amp;districtId=2709" data-bid="b_ofl973zc">高淳区</a>
-            </li>
+              <a data-act="tag-click" data-val="{TagName:'', city_id:55}" data-id="30053" href="?movieId=249342&amp;brandId=30053" data-bid="b_n6nqkt97"></a>
+            </li>           
           </ul>
         </li>
         <li class="tags-line tags-line-border" data-type="hallType">
@@ -329,259 +117,70 @@
           </ul>
         </li>
     </ul>
-  </div>
+  </div> -->
 
   <div class="cinemas-list">
     <h2 class="cinemas-list-header">影院列表</h2>
-    
+      @foreach($data as $row)
       <div class="cinema-cell">
         <div class="cinema-info">
-          <a href="/cinema/17443?poi=158480480&amp;movieId=249342" class="cinema-name" data-act="cinema-name-click" data-bid="b_wek7vrx9" data-val="{city_id: 55, cinema_id: 17443}">中宁国际影城(京新广场店)</a>
-          <p class="cinema-address">地址：浦口区柳洲东路189号京新广场4楼</p>
+          <a href="/cinema/17443?poi=158480480&amp;movieId=249342" class="cinema-name" data-act="cinema-name-click" data-bid="b_wek7vrx9" data-val="{city_id: 55, cinema_id: 17443}">{{$row->name}}</a>
+          <p class="cinema-address">地址: {{$row->address}}</p>
         </div>
-
         <div class="buy-btn">
           <a href="/cinema/17443?poi=158480480&amp;movieId=249342" data-act="buy-btn-click" data-val="{city_id: 55, cinema_id: 17443}" data-bid="b_wek7vrx9">选座购票</a>
-        </div>
-        
+        </div>        
         <div class="price">
             <span class="rmb red">￥</span>
-            <span class="price-num red"><span class="stonefont">&#xf63b;&#xf63b;</span></span>
+            <span class="price-num red"><span class="stonefont">{{$row->min_price}}</span></span>
             <span>起</span>
         </div>
       </div>
-      <div class="cinema-cell">
-        <div class="cinema-info">
-          <a href="/cinema/16257?poi=114095643&amp;movieId=249342" class="cinema-name" data-act="cinema-name-click" data-bid="b_wek7vrx9" data-val="{city_id: 55, cinema_id: 16257}">CGV影城(百家湖店)</a>
-          <p class="cinema-address">地址：江宁区双龙大道1698号景枫广场3F-4F</p>
-        </div>
-
-        <div class="buy-btn">
-          <a href="/cinema/16257?poi=114095643&amp;movieId=249342" data-act="buy-btn-click" data-val="{city_id: 55, cinema_id: 16257}" data-bid="b_wek7vrx9">选座购票</a>
-        </div>
-        
-        <div class="price">
-            <span class="rmb red">￥</span>
-            <span class="price-num red"><span class="stonefont">&#xf5d8;&#xea7a;</span></span>
-            <span>起</span>
-        </div>
-      </div>
-      <div class="cinema-cell">
-        <div class="cinema-info">
-          <a href="/cinema/13915?poi=65769234&amp;movieId=249342" class="cinema-name" data-act="cinema-name-click" data-bid="b_wek7vrx9" data-val="{city_id: 55, cinema_id: 13915}">时代影城</a>
-          <p class="cinema-address">地址：高淳区富克斯5楼</p>
-        </div>
-
-        <div class="buy-btn">
-          <a href="/cinema/13915?poi=65769234&amp;movieId=249342" data-act="buy-btn-click" data-val="{city_id: 55, cinema_id: 13915}" data-bid="b_wek7vrx9">选座购票</a>
-        </div>
-        
-        <div class="price">
-            <span class="rmb red">￥</span>
-            <span class="price-num red"><span class="stonefont">&#xf63b;&#xf331;</span></span>
-            <span>起</span>
-        </div>
-      </div>
-      <div class="cinema-cell">
-        <div class="cinema-info">
-          <a href="/cinema/7656?poi=4167045&amp;movieId=249342" class="cinema-name" data-act="cinema-name-click" data-bid="b_wek7vrx9" data-val="{city_id: 55, cinema_id: 7656}">中广汪海国际影城</a>
-          <p class="cinema-address">地址：雨花台区板桥街道雄风路汪海商业街486号（国美电器梅山店）</p>
-        </div>
-
-        <div class="buy-btn">
-          <a href="/cinema/7656?poi=4167045&amp;movieId=249342" data-act="buy-btn-click" data-val="{city_id: 55, cinema_id: 7656}" data-bid="b_wek7vrx9">选座购票</a>
-        </div>
-        
-        <div class="price">
-            <span class="rmb red">￥</span>
-            <span class="price-num red"><span class="stonefont">&#xea7a;&#xf2bb;</span></span>
-            <span>起</span>
-        </div>
-      </div>
-      <div class="cinema-cell">
-        <div class="cinema-info">
-          <a href="/cinema/11002?poi=41278597&amp;movieId=249342" class="cinema-name" data-act="cinema-name-click" data-bid="b_wek7vrx9" data-val="{city_id: 55, cinema_id: 11002}">南京耀莱成龙国际影城(板桥店)</a>
-          <p class="cinema-address">地址：雨花台区板桥街道新湖大道9号（花生唐购物公园）3号楼</p>
-        </div>
-
-        <div class="buy-btn">
-          <a href="/cinema/11002?poi=41278597&amp;movieId=249342" data-act="buy-btn-click" data-val="{city_id: 55, cinema_id: 11002}" data-bid="b_wek7vrx9">选座购票</a>
-        </div>
-        
-        <div class="price">
-            <span class="rmb red">￥</span>
-            <span class="price-num red"><span class="stonefont">&#xf63b;&#xf63b;</span></span>
-            <span>起</span>
-        </div>
-      </div>
-      <div class="cinema-cell">
-        <div class="cinema-info">
-          <a href="/cinema/10316?poi=5111203&amp;movieId=249342" class="cinema-name" data-act="cinema-name-click" data-bid="b_wek7vrx9" data-val="{city_id: 55, cinema_id: 10316}">南京耀莱成龙国际影城(江宁店)</a>
-          <p class="cinema-address">地址：江宁区东山街道金箔路468号中国女人街C区4层</p>
-        </div>
-
-        <div class="buy-btn">
-          <a href="/cinema/10316?poi=5111203&amp;movieId=249342" data-act="buy-btn-click" data-val="{city_id: 55, cinema_id: 10316}" data-bid="b_wek7vrx9">选座购票</a>
-        </div>
-        
-        <div class="price">
-            <span class="rmb red">￥</span>
-            <span class="price-num red"><span class="stonefont">&#xea7a;&#xf2bb;</span></span>
-            <span>起</span>
-        </div>
-      </div>
-      <div class="cinema-cell">
-        <div class="cinema-info">
-          <a href="/cinema/17388?poi=157735576&amp;movieId=249342" class="cinema-name" data-act="cinema-name-click" data-bid="b_wek7vrx9" data-val="{city_id: 55, cinema_id: 17388}">苏宁尊享影城 (新街口店)</a>
-          <p class="cinema-address">地址：秦淮区淮海路68号苏宁生活广场2F</p>
-        </div>
-
-        <div class="buy-btn">
-          <a href="/cinema/17388?poi=157735576&amp;movieId=249342" data-act="buy-btn-click" data-val="{city_id: 55, cinema_id: 17388}" data-bid="b_wek7vrx9">选座购票</a>
-        </div>
-        
-        <div class="price">
-            <span class="rmb red">￥</span>
-            <span class="price-num red"><span class="stonefont">&#xf63b;&#xf63b;</span></span>
-            <span>起</span>
-        </div>
-      </div>
-      <div class="cinema-cell">
-        <div class="cinema-info">
-          <a href="/cinema/1178?poi=1439219&amp;movieId=249342" class="cinema-name" data-act="cinema-name-click" data-bid="b_wek7vrx9" data-val="{city_id: 55, cinema_id: 1178}">卢米埃影城(紫峰购物广场)</a>
-          <p class="cinema-address">地址：鼓楼区中山北路6号绿地中心紫峰购物广场5-6楼（近湖南路）</p>
-        </div>
-
-        <div class="buy-btn">
-          <a href="/cinema/1178?poi=1439219&amp;movieId=249342" data-act="buy-btn-click" data-val="{city_id: 55, cinema_id: 1178}" data-bid="b_wek7vrx9">选座购票</a>
-        </div>
-        
-        <div class="price">
-            <span class="rmb red">￥</span>
-            <span class="price-num red"><span class="stonefont">&#xf63b;&#xf5d8;</span></span>
-            <span>起</span>
-        </div>
-      </div>
-      <div class="cinema-cell">
-        <div class="cinema-info">
-          <a href="/cinema/2357?poi=1453810&amp;movieId=249342" class="cinema-name" data-act="cinema-name-click" data-bid="b_wek7vrx9" data-val="{city_id: 55, cinema_id: 2357}">艾米·1895电影院</a>
-          <p class="cinema-address">地址：秦淮区汉中路1号新街口国际金融中心5楼（近地铁1号线新街口站）</p>
-        </div>
-
-        <div class="buy-btn">
-          <a href="/cinema/2357?poi=1453810&amp;movieId=249342" data-act="buy-btn-click" data-val="{city_id: 55, cinema_id: 2357}" data-bid="b_wek7vrx9">选座购票</a>
-        </div>
-        
-        <div class="price">
-            <span class="rmb red">￥</span>
-            <span class="price-num red"><span class="stonefont">&#xea7a;&#xf2bb;</span></span>
-            <span>起</span>
-        </div>
-      </div>
-      <div class="cinema-cell">
-        <div class="cinema-info">
-          <a href="/cinema/1170?poi=1172712&amp;movieId=249342" class="cinema-name" data-act="cinema-name-click" data-bid="b_wek7vrx9" data-val="{city_id: 55, cinema_id: 1170}">大地影院(浦口店)</a>
-          <p class="cinema-address">地址：浦口区柳州东路1号苏宁天润城5楼</p>
-        </div>
-
-        <div class="buy-btn">
-          <a href="/cinema/1170?poi=1172712&amp;movieId=249342" data-act="buy-btn-click" data-val="{city_id: 55, cinema_id: 1170}" data-bid="b_wek7vrx9">选座购票</a>
-        </div>
-        
-        <div class="price">
-            <span class="rmb red">￥</span>
-            <span class="price-num red"><span class="stonefont">&#xf63b;&#xf63b;.&#xf59a;</span></span>
-            <span>起</span>
-        </div>
-      </div>
-      <div class="cinema-cell">
-        <div class="cinema-info">
-          <a href="/cinema/1173?poi=1540453&amp;movieId=249342" class="cinema-name" data-act="cinema-name-click" data-bid="b_wek7vrx9" data-val="{city_id: 55, cinema_id: 1173}">卢米埃影城(弘阳广场IMAX影城)</a>
-          <p class="cinema-address">地址：浦口区大桥北路48号弘阳广场</p>
-        </div>
-
-        <div class="buy-btn">
-          <a href="/cinema/1173?poi=1540453&amp;movieId=249342" data-act="buy-btn-click" data-val="{city_id: 55, cinema_id: 1173}" data-bid="b_wek7vrx9">选座购票</a>
-        </div>
-        
-        <div class="price">
-            <span class="rmb red">￥</span>
-            <span class="price-num red"><span class="stonefont">&#xf63b;&#xe1c5;</span></span>
-            <span>起</span>
-        </div>
-      </div>
-      <div class="cinema-cell">
-        <div class="cinema-info">
-          <a href="/cinema/1189?poi=84152&amp;movieId=249342" class="cinema-name" data-act="cinema-name-click" data-bid="b_wek7vrx9" data-val="{city_id: 55, cinema_id: 1189}">新街口国际影城(德基广场IMAX店)</a>
-          <p class="cinema-address">地址：玄武区中山路18号德基广场7楼（近地铁新街口站）</p>
-        </div>
-
-        <div class="buy-btn">
-          <a href="/cinema/1189?poi=84152&amp;movieId=249342" data-act="buy-btn-click" data-val="{city_id: 55, cinema_id: 1189}" data-bid="b_wek7vrx9">选座购票</a>
-        </div>
-        
-        <div class="price">
-            <span class="rmb red">￥</span>
-            <span class="price-num red"><span class="stonefont">&#xf63b;&#xf5d8;.&#xeea5;</span></span>
-            <span>起</span>
-        </div>
-      </div>
-
+      @endforeach
   </div>
 
   <div class="cinema-pager">
     
   
   <ul class="list-pager">
-
-
-
-  
-      <li class="active">
-    <a class="page_1"
-      href="javascript:void(0);" style="cursor: default"
-  >1</a>
-
-</li>
-  <li >
-    <a class="page_2"
-      href="?movieId=249342&amp;offset=12"
-  >2</a>
-
-</li>
-  <li >
-    <a class="page_3"
-      href="?movieId=249342&amp;offset=24"
-  >3</a>
-
-</li>
-  <li >
-    <a class="page_4"
-      href="?movieId=249342&amp;offset=36"
-  >4</a>
-
-</li>
-  <li >
-    <a class="page_5"
-      href="?movieId=249342&amp;offset=48"
-  >5</a>
-
-</li>
-
-    <li class="sep">...</li>
-      <li >
-    <a class="page_9"
-      href="?movieId=249342&amp;offset=96"
-  >9</a>
-
-</li>
-
-  
-
-<li>  <a class="page_2"
-      href="?movieId=249342&amp;offset=12"
-  >下一页</a>
-</li>
+    {{$data->render()}}
+      <!-- <li class="active">
+          <a class="page_1"
+            href="javascript:void(0);" style="cursor: default">1</a>
+      
+      </li>
+        <li >
+          <a class="page_2"
+            href="?movieId=249342&amp;offset=12">2</a>
+      
+      </li>
+        <li >
+          <a class="page_3"
+            href="?movieId=249342&amp;offset=24">3</a>
+      
+      </li>
+        <li >
+          <a class="page_4"
+            href="?movieId=249342&amp;offset=36"
+        >4</a>
+      
+      </li>
+        <li >
+          <a class="page_5"
+            href="?movieId=249342&amp;offset=48"
+        >5</a>
+      
+      </li>
+      
+          <li class="sep">...</li>
+            <li >
+          <a class="page_9"
+            href="?movieId=249342&amp;offset=96">9</a>
+      
+      </li>
+      <li>  <a class="page_2"
+            href="?movieId=249342&amp;offset=12">下一页</a>
+      </li> -->
 </ul>
 
 

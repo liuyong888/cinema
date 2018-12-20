@@ -25,11 +25,15 @@ Route::resource("/adminmember","Admin\MemberController");
 Route::get("/adminmemcheck/{id}","Admin\MemberController@check");
 //后台电影列表
 Route::resource("/adminmovies","Admin\DianyingController");
+//后台场次列表
+Route::resource("/adminrelss","Admin\RelssController");
+// 后台场次Ajax删除
+Route::get("/adminrelssdel","Admin\RelssController@ajaxdel");
 
 //后台登录
 Route::resource("/adminlogin","Admin\AdminLoginController");
 
-Route::group(["middleware"=>'login'],function(){
+// Route::group(["middleware"=>'login'],function(){
 	// 后台首页
 	Route::resource("/admin","Admin\AdminController");
 
@@ -60,7 +64,7 @@ Route::group(["middleware"=>'login'],function(){
 	// 查看后台会员信息
 	Route::get("/adminmemcheck/{id}","Admin\MemberController@check");
 
-});
+// });
 
 
 
