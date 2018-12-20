@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class LoginController extends Controller
+class TehuiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class LoginController extends Controller
      */
     public function index()
     {
-        
+        //加载电影特惠购票页面
+        return view("Home.Tehui.tehui");
     }
 
     /**
@@ -24,9 +25,7 @@ class LoginController extends Controller
      */
     public function create()
     {
-        //加载前台登录页面
-        return view("Home.Login.login");
-
+        //
     }
 
     /**

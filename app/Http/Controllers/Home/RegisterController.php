@@ -55,27 +55,21 @@ class RegisterController extends Controller
 
     public function checkmima(Request $request)
     {   
-        //获取附加参数(注册的手机号码)
+        //获取附加参数(注册的密码)
+        $m=$request->input('m');
+        // echo $m;
+        //获取附加参数(注册的重复密码)
         $cfm=$request->input('cfm');
-        // echo $p;
-        // 获取member数据表里password这一列数据 数据格式:对象格式
-        $phone=DB::table('member')->pluck('password');
-        
-        //给一个新数组
-        $arr=array();
-        //把对象格式转换为数组
-        foreach($password as $k=>$v){
-             //把数据放到arr数组里
-             $arr[$k]=$v;
+        // echo $cfm;
+        //对比
+        if($m=='' || $cfm==''){            
+            echo 2;//密码为空
+        }elseif($m==$cfm){            
+            echo 1;//密码一致
+        }else{
+            echo 0;//密码不一致
+           
         }
-         //把数组返回,以json形式 echo输出不了数组
-         // echo json_encode($arr);
-         // 对比
-         if(in_array($cfm,$arr)){
-            echo 1;//密码不一致
-         }else{
-            echo 0;//密码一致
-         }
     }
 
     public function sendphone(Request $request)
@@ -115,7 +109,7 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
     }
 
     /**

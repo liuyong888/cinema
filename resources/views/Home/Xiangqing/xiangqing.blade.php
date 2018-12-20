@@ -99,7 +99,7 @@ val = {"id":249342};    window.system = {"movieId":"249342","imgs":["http://p0.m
           </div>
         </a>
       </div>
-        <a class="btn buy" href="/goupiao" target="_blank">特惠购票</a>
+        <a class="btn buy" href="/tehui" target="_blank">特惠购票</a>
     </div>
 
     <div class="movie-stats-container">

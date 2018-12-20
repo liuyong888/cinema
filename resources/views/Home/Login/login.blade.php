@@ -62,7 +62,7 @@
 							</div>
 						</div>
 	                    <button class="btn btn-large btn-primary btn-lg btn-block submit" id="login_submit" type="button">登录</button><br>
-	                    <p class="text-center">没有账号？<a href="/register" id="register">免费注册</a></p>
+	                    <p class="text-center">没有账号？<a href="/register/create">免费注册</a></p>
                     </form>
                     <div class="tabs_div">
 	                    <div class="success-box">

@@ -69,11 +69,10 @@ Route::resource("/adminlogin","Admin\AdminLoginController");
 
 // });
 
-
-
-
 // 后台影院管理
 Route::resource("/admincinemas","Admin\CinemasController");
+
+
 
 //前台首页
 Route::resource("/","Home\IndexController");
@@ -84,7 +83,7 @@ Route::resource("/login","Home\LoginController");
 //前台注册
 Route::resource("/register","Home\RegisterController");
 Route::get("/checkphone","Home\RegisterController@checkphone");
-Route::get("/checkmima","Home\RegisterController@checkmiam");
+Route::get("/checkmima","Home\RegisterController@checkmima");
 Route::get("/sendphone","Home\RegisterController@sendphone");
 Route::get("/checkcode","Home\RegisterController@checkcode");
 
@@ -106,6 +105,9 @@ Route::resource("/xiangqing","Home\XiangqingController");
 //前台电影搜索页面
 Route::resource("/sousuo","Home\SousuoController");
 
+//前台电特惠影购票页面
+Route::resource("/tehui","Home\TehuiController");
+
 //前台电影购票页面
 Route::resource("/goupiao","Home\GoupiaoController");
 
@@ -124,4 +126,3 @@ Route::resource("/gerenxinxi","Home\GerenxinxiController");
 //前台订单信息页面
 Route::resource("/dingdanxinxi","Home\DingdanxinxiController");
 
-// hq

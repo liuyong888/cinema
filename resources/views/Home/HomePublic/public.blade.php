@@ -21,7 +21,7 @@
 	<div class="tab-header">
 		<div class="inner">
 			<div class="pull-right">
-				<a href="/login"><span class="cr">登录</span></a>
+				<a href="/login/create"><span class="cr">登录</span></a>
 				<a href="/register/create">注册</a>
 				<a href="/gerenxinxi">我的账户</a>
 				<a href="/dingdanxinxi">我的订单</a>
