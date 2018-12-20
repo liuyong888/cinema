@@ -5,7 +5,7 @@
       <div class="panel panel-default">
 
         <div class="panel-title">
-          友情链接列表
+          轮播图列表
         </div>
 
         <div class="panel-body">

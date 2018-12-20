@@ -98,11 +98,35 @@ class LunboController extends Controller
         //
         // dd($request->all());
         $pic = DB::table('homepic')->where("id","=",$id)->first();
+        //获取pic
+        $m='./uploads/homepic/'.$pic->pic;
         //获取参数
         $data=$request->except(['_token','_method']);
+        // dd($data);
         if($request->hasFile('pic')){
             //获取后缀
-           
+            $ext=$request->file('pic')->getClientOriginalExtension();
+            //随机文件名字
+            $s=time()+rand(1,1000);
+            $request->file('pic')->move(Config::get('app.uploadspic'),$s.".".$ext);
+            $data['pic']=$s.".".$ext;
+            //执行数据库的修改操作
+            if(DB::table('homepic')->where('id','=',$id)->update($data)){
+                //删除原图
+                unlink($m);
+                return redirect("/adminpic")->with('success','修改成功');
+            }else{
+                return redirect("/adminpic")->with('error','修改失败');
+            }
+        }else{
+            //不修改图片
+            // dd($data);
+            $data['pic']=$pic->pic;
+            if(DB::table('homepic')->where('id','=',$id)->update($data)){
+                return redirect('/adminpic')->with('success','修改成功');
+            }else{
+                return redirect("/adminpic")->with('error','修改失败');
+            }
         }
     }
 
@@ -114,6 +138,17 @@ class LunboController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //获取需要删除的数据
+        $pic = DB::table('homepic')->where('id','=',$id)->first();
+        //获取pic
+        $m='./uploads/homepic/'.$pic->pic;
+        //执行删除
+        if(DB::table('homepic')->where('id','=',$id)->delete()){
+            //删除图片
+            unlink($m);
+            return redirect("/adminpic")->with('success','删除成功');
+        }else{
+            return redirect('/adminpic')->with('error','删除失败');
+        }
     }
 }

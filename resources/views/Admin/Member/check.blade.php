@@ -35,6 +35,12 @@
                     <input type="text" class="form-control" id="input11" readonly="" name="nickname" value="{{$member->nickname}}">
                   </div>
                 </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label form-label">头像</label>
+                  <div class="col-sm-10">
+                    <img src="{{$member->pic}}" style="width: 50px;height: 50px;">
+                  </div>
+                </div>
 
                 <div class="form-group">
                   <label class="col-sm-2 control-label form-label">性别</label>

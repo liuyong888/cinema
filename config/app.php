@@ -231,5 +231,7 @@ return [
     'uploads'=>'./uploads/dianyingtupian',
     //首页轮播图地址
     'uploadspic'=>'./uploads/homepic',
+    //用户头像
+    'uploadsinfo'=>'./uploads/memberinfo',
 
 ];

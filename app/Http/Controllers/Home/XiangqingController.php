@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use DB;
+//导入要调用的模型类
+use App\Models\Movies;
 class XiangqingController extends Controller
 {
     /**
@@ -12,10 +14,12 @@ class XiangqingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request,$id)
     {
+        $info = Movies::where("id","=",$id)->first();
         //加载电影详情页面
-        return view("Home.Xiangqing.xiangqing");
+        // dd($info->id);
+        return view("Home.Xiangqing.xiangqing",['info'=>$info]);
     }
 
     /**

@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use DB;
+use App\Models\Movies;
 class DianyingController extends Controller
 {
     /**
@@ -13,9 +14,13 @@ class DianyingController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        //从数据库获取所需数据
+        $movie=DB::table("movies")->orderBy('id','asc')->get();
+        $type = DB::table("film_type")->get();
+        $area = DB::table("film_area")->get();
         //加载电影页面
-        return view("Home.Dianying.dianying");
+        return view("Home.Dianying.dianying",['movie'=>$movie,'type'=>$type,'area'=>$area]);
     }
 
     /**
@@ -47,7 +52,9 @@ class DianyingController extends Controller
      */
     public function show($id)
     {
-        //
+        // echo $id;
+        $info = Movies::where("id","=",$id)->first();
+        return view("Home.Xiangqing.xiangqing",['info'=>$info]);
     }
 
     /**

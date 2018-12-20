@@ -14,7 +14,7 @@
         </div>
 
             <div class="panel-body">
-              <form class="form-horizontal" action="/adminmember/{{$member->id}}" method="post">
+              <form class="form-horizontal" action="/adminmember/{{$member->id}}" method="post" enctype="multipart/form-data">
                     @if (count($errors) > 0)
                       <!-- <div class="mws-form-message error"> -->
                       <!-- <div class="alert alert-danger"> -->
@@ -33,6 +33,18 @@
                   <label class="col-sm-2 control-label form-label">昵称</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" id="input11" placeholder="请输入会员名" name="nickname" value="{{$member->nickname}}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label form-label">头像预览</label>
+                  <div class="col-sm-10">
+                    <img src="{{$member->pic}}" style="width: 50px;height:50px;">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label form-label">头像</label>
+                  <div class="col-sm-10">
+                    <input type="file" class="form-control" id="input11" name="pic" style="border:0px solid white">
                   </div>
                 </div>
 

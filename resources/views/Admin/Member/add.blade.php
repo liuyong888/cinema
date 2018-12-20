@@ -63,7 +63,6 @@
                     <input type="email" class="form-control" id="input122" placeholder="请输入邮箱" name="email">
                   </div>
                 </div>
-                
                 <div class="form-group">
                   <div class="col-sm-offset-2 col-sm-10 checkbox checkbox-primary padding-l-35">
                     <input id="checkbox103" type="checkbox" checked>
