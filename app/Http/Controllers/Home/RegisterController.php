@@ -109,7 +109,15 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
+        //获取需要的参数
+        $data=$request->only(['phone','password']);
+        //密码加密
+        $data['password']=Hash:make($data['password']);
+        //执行添加
+        if(DB::table('member')->insert($data)){
+            return redirect("/login/create")->with('success','注册成功');
+        }
     }
 
     /**

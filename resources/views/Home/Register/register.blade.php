@@ -210,40 +210,40 @@
 		},'json');
 	});
 	//获取输入验证码的input框
-	$("input[name='code']").blur(function(){
-		c=$(this);
-		//获取输入的校验码
-		code=$(this).val();
-		//ajax
-		$.get("/checkcode",{code:code},function(data){
-			if(data==1){
-				//验证码一致
-				c.next("span").css('color','green').html('验证码一致');
-				c.addClass('bb');
-				CODE=true;
-			}else if(data==2){
-				//验证码不一致
-				c.next("span").css('color','red').html('验证码不一致');
-				c.addClass('aa');
-				CODE=false;
-			}else if(data==3){
-				//验证码为空
-				c.next("span").css('color','red').html('验证码为空');
-				c.addClass('aa');
-				CODE=false;
-			}else if(data==4){
-				//验证码过期
-				c.next("span").css('color','red').html('验证码过期');
-				c.addClass('aa');
-				CODE=false;
-			}
-		});
-	});
+	// $("input[name='code']").blur(function(){
+	// 	c=$(this);
+	// 	//获取输入的校验码
+	// 	code=$(this).val();
+	// 	//ajax
+	// 	$.get("/checkcode",{code:code},function(data){
+	// 		if(data==1){
+	// 			//验证码一致
+	// 			c.next("span").css('color','green').html('验证码一致');
+	// 			c.addClass('bb');
+	// 			CODE=true;
+	// 		}else if(data==2){
+	// 			//验证码不一致
+	// 			c.next("span").css('color','red').html('验证码不一致');
+	// 			c.addClass('aa');
+	// 			CODE=false;
+	// 		}else if(data==3){
+	// 			//验证码为空
+	// 			c.next("span").css('color','red').html('验证码为空');
+	// 			c.addClass('aa');
+	// 			CODE=false;
+	// 		}else if(data==4){
+	// 			//验证码过期
+	// 			c.next("span").css('color','red').html('验证码过期');
+	// 			c.addClass('aa');
+	// 			CODE=false;
+	// 		}
+	// 	});
+	// });
 	//表单提交
 	$("#ff").submit(function(){
 		//tigger:某个元素触发某个事件
 		$("input").trigger("blur");
-		if(PHONE && CODE && MIMA && CFMIMA){
+		if(PHONE && MIMA && CFMIMA){
 			return true;//成功提交
 		}else{
 			return false;//阻止提交
