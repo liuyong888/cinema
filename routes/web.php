@@ -25,10 +25,17 @@ Route::get('/', function () {
 // Route::get("/adminmemcheck/{id}","Admin\MemberController@check");
 //后台电影列表
 Route::resource("/adminmovies","Admin\DianyingController");
+
 //后台电影人员列表
 Route::resource("/adminrenyuan","Admin\RenyuanController");
 //后台电影评论列表
 Route::resource("/adminpinglun","Admin\PinglunController");
+
+//后台场次列表
+Route::resource("/adminrelss","Admin\RelssController");
+// 后台场次Ajax删除
+Route::get("/adminrelssdel","Admin\RelssController@ajaxdel");
+
 
 //后台登录
 Route::resource("/adminlogin","Admin\AdminLoginController");
@@ -64,6 +71,7 @@ Route::resource("/adminlogin","Admin\AdminLoginController");
 	// 查看后台会员信息
 	Route::get("/adminmemcheck/{id}","Admin\MemberController@check");
 
+
 	//后台友情链接管理
 	Route::resource("/adminlink","Admin\LinkController");
 
@@ -74,6 +82,26 @@ Route::resource("/admincinemas","Admin\CinemasController");
 
 
 
+	//后台友情链接管理
+	Route::resource("/adminlink","Admin\LinkController");
+
+	//后台轮播图管理
+	Route::resource("/adminpic","Admin\LunboController");
+
+	//后台电影类型管理
+	Route::resource("/filmtype","Admin\TypeController");
+
+	//后台电影地区管理
+	Route::resource("/filmarea","Admin\AreaController");
+
+// });
+
+
+
+
+// 后台影院管理
+Route::resource("/admincinemas","Admin\CinemasController");
+
 //前台首页
 Route::resource("/","Home\IndexController");
 
@@ -82,6 +110,7 @@ Route::resource("/login","Home\LoginController");
 
 //前台注册
 Route::resource("/register","Home\RegisterController");
+
 Route::get("/checkphone","Home\RegisterController@checkphone");
 Route::get("/checkmima","Home\RegisterController@checkmima");
 Route::get("/sendphone","Home\RegisterController@sendphone");
@@ -89,6 +118,13 @@ Route::get("/checkcode","Home\RegisterController@checkcode");
 
 //前台电影页面
 Route::resource("/dianying","Home\DianyingController");
+
+
+//前台电影页面
+Route::resource("/dianying","Home\DianyingController");
+//前台电影特惠购票页面
+Route::resource("/tehui","Home\TehuiController");
+
 
 //前台影院页面
 Route::resource("/yingyuan","Home\YingyuanController");
@@ -100,13 +136,19 @@ Route::resource("/bangdan","Home\BangdanController");
 Route::resource("/redian","Home\RedianController");
 
 //前台电影详情页面
+
 Route::resource("/xiangqing","Home\XiangqingController");
+
+// Route::resource("/xiangqing/{id}","Home\XiangqingController");
+// Route::get("/xiangqing/{id}","Home\XiangqingController@index");
+
 
 //前台电影搜索页面
 Route::resource("/sousuo","Home\SousuoController");
 
 //前台电特惠影购票页面
 Route::resource("/tehui","Home\TehuiController");
+
 
 //前台电影购票页面
 Route::resource("/goupiao","Home\GoupiaoController");
@@ -125,4 +167,6 @@ Route::resource("/gerenxinxi","Home\GerenxinxiController");
 
 //前台订单信息页面
 Route::resource("/dingdanxinxi","Home\DingdanxinxiController");
+
+
 

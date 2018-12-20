@@ -21,6 +21,7 @@
     "autoload": {
         "classmap": [
             "database/seeds",
+<<<<<<< HEAD
             "database/factories",
             "app/Library/A.php",
             "app/Library/Ucpaas.php"
@@ -32,6 +33,13 @@
         "files":[
             "app/Library/helper.php"
         ]
+=======
+            "database/factories"
+        ],
+        "psr-4": {
+            "App\\": "app/"
+        }
+>>>>>>> 21c99e3776868456907eece25b8246db85a0e2d3
     },
     "autoload-dev": {
         "psr-4": {

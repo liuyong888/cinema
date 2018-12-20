@@ -6,6 +6,10 @@
 
         <div class="panel-title">
          电影列表
+<<<<<<< HEAD
+=======
+         <a class="btn" href="/adminmovies/create">添加</a>
+>>>>>>> 21c99e3776868456907eece25b8246db85a0e2d3
         </div>
 
         <div class="panel-body">
@@ -74,4 +78,8 @@
     </div>
 </div>
 @endsection
+<<<<<<< HEAD
 @section('title','会员列表')
+=======
+@section('title','电影列表')
+>>>>>>> 21c99e3776868456907eece25b8246db85a0e2d3

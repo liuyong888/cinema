@@ -59,6 +59,7 @@
 </head>
 <body>
     <div class="container" id="app" class="page-cinemas/list" >
+<<<<<<< HEAD
   <div class="tags-panel">
     <ul class="tags-lines">
     
@@ -178,11 +179,16 @@
         </li>
 
       
+=======
+  <!-- <div class="tags-panel">
+    <ul class="tags-lines">
+>>>>>>> 21c99e3776868456907eece25b8246db85a0e2d3
         <li class="tags-line tags-line-border" data-type="brand">
           <div class="tags-title">品牌:</div>
           <ul class="tags">
             <li class="active">
               <a data-act="tag-click" data-val="{TagName:'全部', city_id:55}" data-id="-1" href="?movieId=249342&amp;brandId=-1" data-bid="b_n6nqkt97">全部</a>
+<<<<<<< HEAD
             </li>
             <li class="">
               <a data-act="tag-click" data-val="{TagName:'幸福蓝海国际影城', city_id:55}" data-id="30053" href="?movieId=249342&amp;brandId=30053" data-bid="b_n6nqkt97">幸福蓝海国际影城</a>
@@ -282,6 +288,12 @@
             <li class="">
               <a data-act="tag-click" data-val="{TagName:'高淳区', city_id:55}" data-id="2709" href="?movieId=249342&amp;districtId=2709" data-bid="b_ofl973zc">高淳区</a>
             </li>
+=======
+            </li>           
+            <li class="">
+              <a data-act="tag-click" data-val="{TagName:'', city_id:55}" data-id="30053" href="?movieId=249342&amp;brandId=30053" data-bid="b_n6nqkt97"></a>
+            </li>           
+>>>>>>> 21c99e3776868456907eece25b8246db85a0e2d3
           </ul>
         </li>
         <li class="tags-line tags-line-border" data-type="hallType">
@@ -329,6 +341,7 @@
           </ul>
         </li>
     </ul>
+<<<<<<< HEAD
   </div>
 
   <div class="cinemas-list">
@@ -526,13 +539,33 @@
             <span>起</span>
         </div>
       </div>
+  </div> -->
 
+  <div class="cinemas-list">
+    <h2 class="cinemas-list-header">影院列表</h2>
+      @foreach($data as $row)
+      <div class="cinema-cell">
+        <div class="cinema-info">
+          <a href="/cinema/17443?poi=158480480&amp;movieId=249342" class="cinema-name" data-act="cinema-name-click" data-bid="b_wek7vrx9" data-val="{city_id: 55, cinema_id: 17443}">{{$row->name}}</a>
+          <p class="cinema-address">地址: {{$row->address}}</p>
+        </div>
+        <div class="buy-btn">
+          <a href="/cinema/17443?poi=158480480&amp;movieId=249342" data-act="buy-btn-click" data-val="{city_id: 55, cinema_id: 17443}" data-bid="b_wek7vrx9">选座购票</a>
+        </div>        
+        <div class="price">
+            <span class="rmb red">￥</span>
+            <span class="price-num red"><span class="stonefont">{{$row->min_price}}</span></span>
+            <span>起</span>
+        </div>
+      </div>
+      @endforeach
   </div>
 
   <div class="cinema-pager">
     
   
   <ul class="list-pager">
+
 
 
 
@@ -582,6 +615,44 @@
       href="?movieId=249342&amp;offset=12"
   >下一页</a>
 </li>
+    {{$data->render()}}
+      <!-- <li class="active">
+          <a class="page_1"
+            href="javascript:void(0);" style="cursor: default">1</a>
+      
+      </li>
+        <li >
+          <a class="page_2"
+            href="?movieId=249342&amp;offset=12">2</a>
+      
+      </li>
+        <li >
+          <a class="page_3"
+            href="?movieId=249342&amp;offset=24">3</a>
+      
+      </li>
+        <li >
+          <a class="page_4"
+            href="?movieId=249342&amp;offset=36"
+        >4</a>
+      
+      </li>
+        <li >
+          <a class="page_5"
+            href="?movieId=249342&amp;offset=48"
+        >5</a>
+      
+      </li>
+      
+          <li class="sep">...</li>
+            <li >
+          <a class="page_9"
+            href="?movieId=249342&amp;offset=96">9</a>
+      
+      </li>
+      <li>  <a class="page_2"
+            href="?movieId=249342&amp;offset=12">下一页</a>
+      </li> -->
 </ul>
 
 

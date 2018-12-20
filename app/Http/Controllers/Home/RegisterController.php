@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
 //导入DB
 use DB;
+
 class RegisterController extends Controller
 {
     /**
@@ -15,7 +17,9 @@ class RegisterController extends Controller
      */
     public function index()
     {
-        
+
+        //加载前台注册页面
+        return view("Home.Register.register");
     }
 
     /**
@@ -25,6 +29,7 @@ class RegisterController extends Controller
      */
     public function create()
     {
+
         //加载前台注册页面
         return view("Home.Register.register");
     }
@@ -109,6 +114,7 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
+
         // dd($request->all());
         //获取需要的参数
         $data=$request->only(['phone','password']);

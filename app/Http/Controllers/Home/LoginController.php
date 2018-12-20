@@ -14,7 +14,12 @@ class LoginController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         
+=======
+        //加载前台登录页面
+        return view("Home.Login.login");
+>>>>>>> 21c99e3776868456907eece25b8246db85a0e2d3
     }
 
     /**
@@ -24,9 +29,13 @@ class LoginController extends Controller
      */
     public function create()
     {
+<<<<<<< HEAD
         //加载前台登录页面
         return view("Home.Login.login");
 
+=======
+        //
+>>>>>>> 21c99e3776868456907eece25b8246db85a0e2d3
     }
 
     /**

@@ -75,6 +75,20 @@
                 </div>
 
                 <div class="form-group">
+<<<<<<< HEAD
+=======
+                  <label class="col-sm-2 control-label form-label">电影编码</label>
+                  <div class="col-sm-10">
+                    <select name="movie_ver">
+                      <option value="">--请选择--</option>
+                      <option value="0">2D</option>
+                      <option value="1">3D</option>
+                      <option value="2">3DIMAX</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+>>>>>>> 21c99e3776868456907eece25b8246db85a0e2d3
                   <label class="col-sm-2 control-label form-label">时长</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" placeholder="请输入电影时长" name="shichang">

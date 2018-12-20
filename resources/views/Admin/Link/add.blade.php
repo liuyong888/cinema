@@ -5,7 +5,11 @@
       <div class="panel panel-default">
 
         <div class="panel-title">
+<<<<<<< HEAD
           会员添加
+=======
+          友情链接添加
+>>>>>>> 21c99e3776868456907eece25b8246db85a0e2d3
           <ul class="panel-tools">
             <li><a class="icon minimise-tool"><i class="fa fa-minus"></i></a></li>
             <li><a class="icon expand-tool"><i class="fa fa-expand"></i></a></li>

@@ -55,6 +55,12 @@ val = {"subnavId":1};    window.system = {};
     .stonefont {
       font-family: stonefont;
     }
+<<<<<<< HEAD
+=======
+    a:link{
+      text-decoration: none;
+    }
+>>>>>>> 21c99e3776868456907eece25b8246db85a0e2d3
   </style>
 </head>
 <body>
@@ -94,6 +100,7 @@ val = {"subnavId":1};    window.system = {};
                 href="javascript:void(0);" style="cursor: default"
             >全部</a>
           </li>
+<<<<<<< HEAD
           <li >
             <a data-act="tag-click" data-val="{TagName:'爱情'}"
                 href="?catId=3"
@@ -219,6 +226,15 @@ val = {"subnavId":1};    window.system = {};
                 href="?catId=100"
             >其他</a>
           </li>
+=======
+          @foreach($type as $row)
+          <li>
+            <a data-act="tag-click" data-val="{TagName:'{{$row->name}}'}"
+                href="?catId=3"
+            >{{$row->name}}</a>
+          </li>
+          @endforeach
+>>>>>>> 21c99e3776868456907eece25b8246db85a0e2d3
         </ul>
       </li>
       <li class="tags-line tags-line-border" data-val="{tagTypeName:'source'}">
@@ -229,6 +245,7 @@ val = {"subnavId":1};    window.system = {};
                 href="javascript:void(0);" style="cursor: default"
             >全部</a>
           </li>
+<<<<<<< HEAD
           <li >
             <a data-act="tag-click" data-val="{TagName:'大陆'}"
                 href="?sourceId=2"
@@ -319,6 +336,16 @@ val = {"subnavId":1};    window.system = {};
                 href="?sourceId=100"
             >其他</a>
           </li>
+=======
+          @foreach($area as $row)
+          <li >
+            <a data-act="tag-click" data-val="{TagName:'{{$row->area_name}}'}"
+                href="?sourceId=2"
+            >{{$row->area_name}}</a>
+          </li>
+          @endforeach
+           
+>>>>>>> 21c99e3776868456907eece25b8246db85a0e2d3
         </ul>
       </li>
       <li class="tags-line tags-line-border" data-val="{tagTypeName:'year'}">
@@ -447,6 +474,7 @@ val = {"subnavId":1};    window.system = {};
     <div class="movies-list">
     
     <dl class="movie-list">
+<<<<<<< HEAD
   <dd>
     <div class="movie-item">
       <a href="/xiangqing" target="_blank" data-act="movie-click" data-val="{movieid:345036}">
@@ -987,6 +1015,36 @@ val = {"subnavId":1};    window.system = {};
     </div>
 <div class="channel-detail channel-detail-orange">暂无评分</div>
   
+=======
+  @foreach($movie as $row)
+  <dd>
+    <div class="movie-item">
+      <a href="/dianying/{{$row->id}}" target="_blank" data-act="movie-click" >
+      <div class="movie-poster">
+        <!-- <img class="poster-default" src="/static/Home/dystatic/picture/loading_2.e3d934bf.png" /> -->
+        <img data-src="../uploads/dianyingtupian/{{$row->tupian}}" />
+      </div>
+      </a>
+      @if(is_numeric($row->pingfen))
+        <div class="channel-action channel-action-sale">
+          <a>购票</a>
+         </div>
+      @endif
+      <div class="movie-ver">
+        @if($row->movie_ver==1)
+        <i class="m3d"></i>
+        @elseif($row->movie_ver==2)
+        <i class="imax3d"></i>
+        @endif
+      </div>
+    </div>
+    <div class="channel-detail movie-item-title" title="{{$row->zwname}}">
+      <a href="/films/345036" target="_blank" data-act="movies-click" data-val="{movieId:345036}">{{$row->zwname}}</a>
+    </div>
+  <div class="channel-detail channel-detail-orange">{{$row->pingfen}}</div>
+  @endforeach
+
+>>>>>>> 21c99e3776868456907eece25b8246db85a0e2d3
 </dl>
 
 
