@@ -56,15 +56,15 @@ class RegisterController extends Controller
     public function checkmima(Request $request)
     {   
         //获取附加参数(注册的密码)
-        $m=$request->input('m');
-        // echo $m;
+        $mm=$request->input('mm');
+        // echo $mm;
         //获取附加参数(注册的重复密码)
         $cfm=$request->input('cfm');
         // echo $cfm;
         //对比
-        if($m=='' || $cfm==''){            
+        if($mm=='' || $cfm==''){            
             echo 2;//密码为空
-        }elseif($m==$cfm){            
+        }elseif($mm==$cfm){            
             echo 1;//密码一致
         }else{
             echo 0;//密码不一致
@@ -109,7 +109,7 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+        dd($request->all());
     }
 
     /**

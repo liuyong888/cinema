@@ -34,7 +34,7 @@
   					<h2>欢迎注册<a href="/login/create" class="pull-right fz16" id="reglogin">返回登录</a></h2>
   				</div>
   				<div class="tabs_container">
-					<form action="/login/create" method="post" id="ff">
+					<form action="/register" method="post" id="ff">
 						{{csrf_field()}}
 						<div class="form-group">
 							<div class="input-group">
@@ -139,11 +139,11 @@
 	//获取密码,绑定失去焦点事件
 	$("input[name='password']").blur(function(){
 		//获取密码
-		m=$(this).val();
+		mm=$(this).val();
 		//ajax里$(this)解析不了
 		o=$(this);
 		//正则匹配 match 匹配不到的话,返回null
-		if(m.match(/^[\w]{6,12}$/)==null){
+		if(mm.match(/^[\w]{6,12}$/)==null){
 			$(this).next("span").css('color','red').html('密码不符合');
 			$(this).addClass('aa');
 			MIMA=false;
@@ -162,7 +162,7 @@
 		//ajax里$(this)解析不了
 		o=$(this);
 		//判断重复密码是否一致
-		$.get("/checkmima",{cfm:cfm,m:m},function(data){
+		$.get("/checkmima",{cfm:cfm,mm:mm},function(data){
 			// alert(data);
 			if(data==1){
 				//重复密码一致
@@ -219,23 +219,27 @@
 			if(data==1){
 				//验证码一致
 				c.next("span").css('color','green').html('验证码一致');
+				c.addClass('bb');
 				CODE=true;
 			}else if(data==2){
 				//验证码不一致
 				c.next("span").css('color','red').html('验证码不一致');
+				c.addClass('aa');
 				CODE=false;
 			}else if(data==3){
 				//验证码为空
 				c.next("span").css('color','red').html('验证码为空');
+				c.addClass('aa');
 				CODE=false;
 			}else if(data==4){
 				//验证码过期
 				c.next("span").css('color','red').html('验证码过期');
+				c.addClass('aa');
 				CODE=false;
 			}
 		});
 	});
-	//表单提交  0
+	//表单提交
 	$("#ff").submit(function(){
 		//tigger:某个元素触发某个事件
 		$("input").trigger("blur");
