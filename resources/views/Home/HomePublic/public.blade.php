@@ -34,7 +34,7 @@
 			<a class="logo" href="index.html"><img src="/static/Home/images/icons/logo.jpg" alt="U袋网" class="cover"></a>
 			<div class="search-box">
 				<form class="input-group" action="/sousuo" method="get">
-					<input type="text" name="keywords" value="{{$request['keywords']or''}}">
+					<input type="text" name="keywords" value="">
 					<span class="input-group-btn">
 						<button type="submit">
 							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>

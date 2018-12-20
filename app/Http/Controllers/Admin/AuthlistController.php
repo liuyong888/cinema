@@ -12,12 +12,13 @@ class AuthlistController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
         // echo "this is index";
-        $node = DB::table("node")->paginate(7);
-        return view("Admin.Authlist.index",['node'=>$node]);
+        $k = $request->input('keywords');
+        $node = DB::table("node")->where('name','like','%'.$k.'%')->paginate(7);
+        return view("Admin.Authlist.index",['node'=>$node,'request'=>$request->all()]);
     }
 
     /**

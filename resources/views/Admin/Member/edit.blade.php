@@ -1,158 +1,140 @@
 @extends('Admin.AdminPublic.public')
 @section('content')
-<!DOCTYPE html>
-<html lang="en">
+<div class="row">
+ <div class="col-md-12">
+      <div class="panel panel-default">
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title></title>
-  <!-- plugins:css -->
-  <link rel="stylesheet" href="/static/admins/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="/static/admins/vendors/css/vendor.bundle.base.css">
-  <!-- endinject -->
-  <!-- inject:css -->
-  <link rel="stylesheet" href="/static/admins/css/style.css">
-  <!-- endinject -->
-  <link rel="shortcut icon" href="/static/admins/images/favicon.png" />
-</head>
+        <div class="panel-title">
+          信息修改
+          <ul class="panel-tools">
+            <li><a class="icon minimise-tool"><i class="fa fa-minus"></i></a></li>
+            <li><a class="icon expand-tool"><i class="fa fa-expand"></i></a></li>
+            <li><a class="icon closed-tool"><i class="fa fa-times"></i></a></li>
+          </ul>
+        </div>
 
-<body>
-  <!-- <div class="container-scroller"> -->
-    <!-- partial:../../partials/_navbar.html -->
-    <!-- partial -->
-    <!-- <div class="container-fluid page-body-wrapper"> -->
-      <!-- partial:../../partials/_sidebar.html -->
-      <!-- partial -->
-      <!-- <div class="main-panel">         -->
-        <div class="content-wrapper">
-          <div class="row"> 
-            <div class="col-12 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">修改会员信息</h4>
-                  <p class="card-description">
-                    <!-- Basic form elements -->
-                  </p>
-                  <form class="forms-sample" action="/adminmember/{{$member->id}}" method="post">
+            <div class="panel-body">
+              <form class="form-horizontal" action="/adminmember/{{$member->id}}" method="post" enctype="multipart/form-data">
                     @if (count($errors) > 0)
                       <!-- <div class="mws-form-message error"> -->
                       <!-- <div class="alert alert-danger"> -->
-                        <ul class="alert alert-danger" id="ul">
-                          @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li> 
-                          @endforeach
-                        </ul>
+                        <!-- <ul class="alert alert-danger" id="ul" style="cursor:pointer;"> -->
+                            <div class="Modern-alert Modern-alert-icon Modern-alert-click alert5">
+                                @foreach ($errors->all() as $error)
+                                <i class="fa fa-warning"></i>
+                                {{ $error }}
+                                @endforeach
+                              </div>
+
                       <!-- </div> -->
                       <!-- </div> -->
                     @endif
-                    <div class="form-group">
-                      <label for="exampleInputName1">昵称</label>
-                      <input type="text" class="form-control" id="exampleInputName1" name="nickname" value="{{$member->nickname}}">
-                    </div>
-                    <div class="form-group">
-                      <label>性别</label>
-                      <div class="form-check">
-                        <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="sex" id="membershipRadios1" value="1" @if($member->sex==1) checked @endif>
-                          男
-                        </label>
-                      </div>
-                       <div class="form-check">
-                        <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="sex" id="membershipRadios1" value="0" @if($member->sex==0) checked @endif>
-                          女
-                        </label>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword4">生日</label>
-                      <input type="text" class="form-control" id="exampleInputPassword4"  name="birthday" value="{{$member->birthday}}">
-                    </div>
-                    <div class="form-group">
-                      <label>生活状态</label>
-                       <div class="form-check">
-                        <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="status" id="membershipRadios1" value="0" @if($member->status==0) checked @endif>
-                          单身
-                        </label>
-                      </div>
-                       <div class="form-check">
-                        <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="status" id="membershipRadios1" value="1" @if($member->status==1) checked @endif>
-                          热恋中
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="status" id="membershipRadios1" value="2" @if($member->status==2) checked @endif>
-                          已婚
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="status" id="membershipRadios1" value="3" @if($member->status==3) checked @endif>
-                          为人父母
-                        </label>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword4">从事行业</label>
-                      <input type="text" class="form-control" id="exampleInputPassword4"  name="industry" value="{{$member->industry}}">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword4">个性签名</label>
-                      <input type="text" class="form-control" id="exampleInputPassword4"  name="sign" value="{{$member->sign}}">
-                    </div>
-                <!--     <div class="form-group">
-                      <label>File upload</label>
-                      <input type="file" name="img[]" class="file-upload-default">
-                      <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                        <span class="input-group-append">
-                          <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
-                        </span>
-                      </div>
-                    </div> -->
-                    {{csrf_field()}}
-                    {{method_field("PUT")}}
-                    <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-                    <button class="btn btn-light">Cancel</button>
-                  </form>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label form-label">昵称</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="input11" placeholder="请输入会员名" name="nickname" value="{{$member->nickname}}">
+                  </div>
                 </div>
-              </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label form-label">头像预览</label>
+                  <div class="col-sm-10">
+                    <img src="{{$member->pic}}" style="width: 50px;height:50px;">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label form-label">头像</label>
+                  <div class="col-sm-10">
+                    <input type="file" class="form-control" id="input11" name="pic" style="border:0px solid white">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-2 control-label form-label">性别</label>
+                  <div class="col-sm-10">
+                    <div class="radio radio-info radio-inline">
+                        <input type="radio" id="inlineRadio1" value="1" name="sex" @if($member->sex==1) checked @endif>
+                        <label for="inlineRadio1">男</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <input type="radio" id="inlineRadio2" value="0" name="sex" @if($member->sex==0) checked @endif>
+                        <label for="inlineRadio2">女</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-2 control-label form-label">生日</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control"  name="birthday" value="{{$member->birthday}}">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-2 control-label form-label">生活状态</label>
+                  <div class="col-sm-10">
+                     <div class="radio radio-danger">
+                        <input type="radio" name="status" id="radio0" value="0" @if($member->status==0) checked @endif>
+                        <label for="radio0">
+                           单身
+                        </label>
+                    </div>
+                     <div class="radio radio-danger">
+                        <input type="radio" name="status" id="radio1" value="1" @if($member->status==1) checked @endif>
+                        <label for="radio1">
+                           热恋中
+                        </label>
+                    </div>
+                     <div class="radio radio-danger">
+                        <input type="radio" name="status" id="radio2" value="2" @if($member->status==2) checked @endif>
+                        <label for="radio2">
+                           已婚
+                        </label>
+                    </div>
+                     <div class="radio radio-danger">
+                        <input type="radio" name="status" id="radio3" value="3" @if($member->status==3) checked @endif>
+                        <label for="radio3">
+                           为人父母
+                        </label>
+                    </div>
+                   
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-2 control-label form-label">从事行业</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="input122" name="industry" value="{{$member->industry}}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label form-label">个性签名</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="input12" name="sign" value="{{$member->sign}}">
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10 checkbox checkbox-primary padding-l-35">
+                    <input id="checkbox103" type="checkbox" checked>
+                    <label for="checkbox103">Remember me</label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                     {{csrf_field()}}
+                     {{method_field("PUT")}}
+                    <button type="submit" class="btn btn-default">Submit</button>
+                    <button class="btn btn-default">Cancel</button>
+                  </div>
+                </div>
+
+              </form>
+
             </div>
 
-          </div>
-        </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:../../partials/_footer.html -->
-        <!-- partial -->
-      <!-- </div> -->
-      <!-- main-panel ends -->
-    <!-- </div> -->
-    <!-- page-body-wrapper ends -->
-  <!-- </div> -->
-  <!-- container-scroller -->
-  <!-- plugins:js -->
-  <script src="/static/admins/vendors/js/vendor.bundle.base.js"></script>
-  <script src="/static/admins/vendors/js/vendor.bundle.addons.js"></script>
-  <!-- endinject -->
-  <!-- inject:js -->
-  <script src="/static/admins/js/off-canvas.js"></script>
-  <script src="/static/admins/js/misc.js"></script>
-  <script src="/static/admins/js/bootstrap.min.js"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page-->
-  <script src="/static/admins/js/file-upload.js"></script>
-  <!-- End custom js for this page-->
-</body>
-<script>
-  $("#ul").click(function(){
-    $(this).fadeOut("slow");
-  });
-</script>
-</html>
+      </div>
+    </div>
+</div>
 @endsection
-@section('title','修改会员信息')
+@section('title','会员添加')

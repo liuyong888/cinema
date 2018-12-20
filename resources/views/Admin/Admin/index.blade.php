@@ -1,5 +1,6 @@
 @extends("Admin.AdminPublic.public")
 @section('content')
+<<<<<<< HEAD
 <div class="row">
 
     <!-- Start Chart Daily -->
@@ -891,5 +892,8 @@
             </div>
           </div>
         </div>
+=======
+<h1>后台首页</h1>
+>>>>>>> 84c72b6d29250350ab42b0d9c9455224f8aae16a
 @endsection
 @section('title','后台首页') -->

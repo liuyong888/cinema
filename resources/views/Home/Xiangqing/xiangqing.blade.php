@@ -58,6 +58,9 @@ val = {"id":249342};    window.system = {"movieId":"249342","imgs":["http://p0.m
     .stonefont {
       font-family: stonefont;
     }
+    .btn:hover{
+      color:white;
+    }
   </style>
 </head>
 <body>
@@ -65,32 +68,38 @@ val = {"id":249342};    window.system = {"movieId":"249342","imgs":["http://p0.m
     <div class="wrapper clearfix">
       <div class="celeInfo-left">
         <div class="avatar-shadow">
-          <img class="avatar" src="/static/Home/xqstatic/picture/c106904da68edd848afd4a320976d051346321.jpg@464w_644h_1e_1c" alt="">
-            <div class="movie-ver"><i class="imax3d"></i></div>
+          <img class="avatar" src="/uploads/dianyingtupian/{{$info->tupian}}" alt="">
+            <div class="movie-ver">
+              @if($info->movie_ver==1)
+              <i class="m3d"></i>
+              @elseif($info->movie_ver==2)
+              <i class="imax3d"></i>
+              @endif
+            </div>
         </div>
       </div>
       <div class="celeInfo-right clearfix">
             <div class="movie-brief-container" >
-      <h3 class="name">海王</h3>
-      <div class="ename ellipsis">Aquaman</div>
+      <h3 class="name">{{$info->zwname}}</h3>
+      <div class="ename ellipsis">{{$info->ywname}}</div>
       <ul>
-        <li class="ellipsis">动作,冒险,奇幻</li>
+        <li class="ellipsis">{{$info->leixing}}</li>
         <li class="ellipsis">
-        美国
-          / 143分钟
+        {{$info->diqu}}
+          / {{$info->shichang}}
         </li>
-        <li class="ellipsis">2018-12-07大陆上映</li>
+        <li class="ellipsis">{{$info->syshijian}}{{$info->sydiqu}}上映</li>
       </ul>
     </div>
     <div class="action-buyBtn">
       <div class="action clearfix" data-val="{movieid:249342}">
-        <a class="wish " data-wish="false" data-score="" data-bid="b_gbxqtw6x">
+        <a class="wish " data-wish="false" data-score="" data-bid="b_gbxqtw6x" style="text-decoration-line: none;">
           <div style="margin-top: -5px">
             <i class="icon wish-icon"></i>
               <span class="wish-msg" data-act="wish-click">想看</span>
           </div>
         </a>
-        <a class="score-btn " data-bid="b_rxxpcgwd">
+        <a class="score-btn " data-bid="b_rxxpcgwd" style="text-decoration-line: none;">
           <div style="margin-top: -5px">
             <i class="icon score-btn-icon"></i>
             <span class="score-btn-msg" data-act="comment-open-click">
@@ -99,33 +108,39 @@ val = {"id":249342};    window.system = {"movieId":"249342","imgs":["http://p0.m
           </div>
         </a>
       </div>
-        <a class="btn buy" href="/goupiao" target="_blank">特惠购票</a>
+        <a class="btn buy" href="/tehui/{{$info->id}}" target="_blank" style="text-decoration-line: none;color: white;">特惠购票</a>
     </div>
 
     <div class="movie-stats-container">
-
+        @if(is_numeric($info->pingfen))
         <div class="movie-index">
           <p class="movie-index-title">用户评分</p>
           <div class="movie-index-content score normal-score">
               <span class="index-left info-num ">
-                <span class="stonefont">&#xf59a;.&#xeea5;</span>
+                <span class="stonefont">{{$info->pingfen}}</span>
               </span>
-              <div class="index-right">
-                <div class='star-wrapper'>
-                  <div class="star-on" style="width:95%;"></div>
-                </div>
-                 <span class='score-num'><span class="stonefont">&#xea7a;&#xf59a;.&#xf5d8;万</span>人评分</span>
-              </div>
           </div>
         </div>
-
-        
+        @else
+        <div class="movie-index">
+          <p class="movie-index-title">想看数</p>
+          <div class="movie-index-content score normal-score">
+              <span class="index-left info-num one-line"><span class="stonefont">{{$info->xiangkan}}</span></span>
+          </div>
+        </div>
+        @endif
 
         <div class="movie-index">
           <p class="movie-index-title">累计票房</p>
+          @if(floor($info->piaofang)==$info->piaofang)
           <div class="movie-index-content box">
-              <span class="stonefont">&#xf331;.&#xf331;&#xf59a;</span><span class="unit">亿</span>
+              <span class="stonefont">{{$info->piaofang}}</span><span class="unit">万</span>
           </div>
+          @else
+          <div class="movie-index-content box">
+              <span class="stonefont">{{$info->piaofang}}</span><span class="unit">亿</span>
+          </div>
+          @endif
         </div>
     </div>
 
@@ -152,7 +167,7 @@ val = {"id":249342};    window.system = {"movieId":"249342","imgs":["http://p0.m
       <h3>剧情简介</h3>
     </div>
     <div class="mod-content">
-                    <span class="dra">海王（杰森·莫玛 饰）是美国DC漫画旗下超级英雄，本名亚瑟·库瑞，是海底之国亚特兰蒂斯的皇后和美国海边一个灯塔看守人的私生子，拥有半人类、半亚特兰蒂斯人的血统，从小就展现出了远超常人的各项体能，以及能在水下自由活动与呼吸，并和海洋生物沟通等异于他人的能力，在前任亚特兰蒂斯国王死后，王位空缺，其母派人找到他，加冕其为亚特兰蒂斯国王、掌管七海，并被赋予了亚特兰蒂斯王权的象征，能操控大海力量，掀起风浪的三叉戟，后与超人、蝙蝠侠等人创立正义联盟，成为正义联盟七大创始人之一。</span>
+      <span class="dra">{{$info->jianjie}}</span>
 
     </div>
   </div>

@@ -22,7 +22,7 @@ class DianyingController extends Controller
         //获取搜索的关键词
         $k=$request->input('keywords');
         //获取列表数据
-        $movies=DB::table("movies")->where('zwname','like','%'.$k.'%')->get();
+        $movies=DB::table("movies")->join('film_type','movies.leixing','=','film_type.id')->join('film_area','movies.diqu','=','film_area.a_id')->select('film_type.id as ftid','film_type.name as ftname','film_area.a_id as faid','film_area.area_name as faname','movies.id as mid','movies.zwname','movies.ywname','movies.tupian','movies.leixing','movies.diqu','movies.shichang','movies.syshijian','movies.sydiqu','movies.xiangkan','movies.piaofang','movies.pingfen','movies.jianjie')->where('zwname','like','%'.$k.'%')->paginate(3);
         // dd($movies);
         return view("Admin.Dianying.index",['movies'=>$movies,'request'=>$request->all()]);
     }
@@ -34,8 +34,12 @@ class DianyingController extends Controller
      */
     public function create()
     {
+        //获取film_type数据表的数据
+        $aa=DB::table('film_type')->get();
+        //获取film_area数据表的数据
+        $bb=DB::table('film_area')->get();
         //加载电影添加页面
-        return view("Admin.Dianying.add");
+        return view("Admin.Dianying.add",['aa'=>$aa,'bb'=>$bb]);
     }
 
     /**
@@ -53,6 +57,7 @@ class DianyingController extends Controller
         $data=$request->except(['_token','tupian']);
         // dd($data);
         //检测是否有文件上传
+        // dd($request->hasFile('tupian'));
         if($request->hasFile('tupian')){
             //初始化名字
             $name=time()+rand(1,10000);
@@ -69,10 +74,11 @@ class DianyingController extends Controller
             // $tupian=$name.".".$ext;
             //把$tupian封装在$data 'tupian'是数据表里的字段
             // $data['tupian']=$tupian;
-            //把上传文件路径写到$data里
+            // 把上传文件写到$data里
             $data['tupian']=$name.".".$ext;
             // dd($data);
              //执行添加
+             // dd(DB::table("movies")->insert($data));
             if(DB::table("movies")->insert($data)){
                 return redirect("/adminmovies")->with('success','添加成功');
             }
@@ -98,11 +104,20 @@ class DianyingController extends Controller
      */
     public function edit($id)
     {
+        //获取film_type数据表的数据
+        $aa=DB::table('film_type')->get();
+        // dd($aa);
+        //获取film_area数据表的数据
+        $bb=DB::table('film_area')->get();
+        // dd($bb);
         // echo $id;
         // 获取需要修改的数据
         $movies=DB::table('movies')->where('id','=',$id)->first();
+        // dd($movies);
+        // echo "<pre>";
+        // var_dump($movies);exit;
         //加载修改页面
-        return view("Admin.Dianying.edit",['movies'=>$movies]);
+        return view("Admin.Dianying.edit",['movies'=>$movies,'aa'=>$aa,'bb'=>$bb]);
     }
 
     /**
@@ -114,11 +129,11 @@ class DianyingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // echo $id;
         // dd($request->all());
         //执行修改
         //查询需要修改的单条数据(因为是修改图片,要找到原来的图片的位置)
         $aa=DB::table('movies')->where('id','=',$id)->first();
+        // dd($aa);
         //把查询到的第三条数据里的图片字段放到$tupian1变量里(原来的图片)
         $tupian1=$aa->tupian;
         //把请求除了_token  _method这两个参数之外的参数放到$data里
@@ -141,8 +156,8 @@ class DianyingController extends Controller
             //把$tupian封装在$data 'tupian'是数据表里的字段
             $data['tupian']=$tupian;
             //跟新数据
-            $aa=DB::table('movies')->where('id','=',$id)->update($data);
-            if($aa){
+            $bb=DB::table('movies')->where('id','=',$id)->update($data);
+            if($bb){
                 //删除原来的图片  $tupian1(原来的图片)
                 unlink('./uploads/dianyingtupian/'.$tupian1);
                 return redirect("/adminmovies")->with('success','修改成功');
@@ -150,7 +165,13 @@ class DianyingController extends Controller
                 return redirect("/adminmovies/{{$row->id}}/deit")->with('error','修改失败');
             }
         }else{
-            return back()->with('error','没有文件上传');
+            //没有图片上传
+            $data['tupian']=$aa->tupian;
+             if(DB::table('movies')->where('id','=',$id)->update($data)){
+                return redirect("/adminmovies")->with('success','修改成功');
+            }else{
+                return redirect("/adminmovies")->with('error','没有修改痕迹');
+            }
         }
     }
     /**

@@ -16,13 +16,13 @@ Route::get('/', function () {
 });
 
 // 后台首页
-Route::resource("/admin","Admin\AdminController");
+// Route::resource("/admin","Admin\AdminController");
 // 后台管理员
-Route::resource("/adminuser","Admin\UserController");
+// Route::resource("/adminuser","Admin\UserController");
 // 后台会员
-Route::resource("/adminmember","Admin\MemberController");
+// Route::resource("/adminmember","Admin\MemberController");
 // 查看后台会员信息
-Route::get("/adminmemcheck/{id}","Admin\MemberController@check");
+// Route::get("/adminmemcheck/{id}","Admin\MemberController@check");
 //后台电影列表
 Route::resource("/adminmovies","Admin\DianyingController");
 //后台场次列表
@@ -64,6 +64,19 @@ Route::resource("/adminlogin","Admin\AdminLoginController");
 	// 查看后台会员信息
 	Route::get("/adminmemcheck/{id}","Admin\MemberController@check");
 
+
+	//后台友情链接管理
+	Route::resource("/adminlink","Admin\LinkController");
+
+	//后台轮播图管理
+	Route::resource("/adminpic","Admin\LunboController");
+
+	//后台电影类型管理
+	Route::resource("/filmtype","Admin\TypeController");
+
+	//后台电影地区管理
+	Route::resource("/filmarea","Admin\AreaController");
+
 // });
 
 
@@ -83,6 +96,8 @@ Route::resource("/register","Home\RegisterController");
 
 //前台电影页面
 Route::resource("/dianying","Home\DianyingController");
+//前台电影特惠购票页面
+Route::resource("/tehui","Home\TehuiController");
 
 //前台影院页面
 Route::resource("/yingyuan","Home\YingyuanController");
@@ -94,7 +109,8 @@ Route::resource("/bangdan","Home\BangdanController");
 Route::resource("/redian","Home\RedianController");
 
 //前台电影详情页面
-Route::resource("/xiangqing","Home\XiangqingController");
+// Route::resource("/xiangqing/{id}","Home\XiangqingController");
+// Route::get("/xiangqing/{id}","Home\XiangqingController@index");
 
 //前台电影搜索页面
 Route::resource("/sousuo","Home\SousuoController");

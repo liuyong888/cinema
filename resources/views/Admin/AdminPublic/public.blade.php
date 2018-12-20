@@ -111,6 +111,7 @@
     <ul>
       <li><a href="/adminuser">管理员列表</a></li>
       <li><a href="/adminuser/create">管理员添加</a></li>
+<<<<<<< HEAD
     </ul>
   </li>
   <!-- <li><a href="charts.html"><span class="icon color8"><i class="fa fa-bar-chart"></i></span>Charts</a></li> -->
@@ -160,6 +161,42 @@
   <li><a href="helper-classes.html"><span class="icon color8"><i class="fa fa-code"></i></span>Helper Classes</a></li>
 </ul>
 
+=======
+      <li><a href="/rolelist">角色列表</a></li>
+      <li><a href="/rolelist/create">角色添加</a></li>
+      <li><a href="/authlist">权限列表</a></li>
+      <li><a href="/authlist/create">权限添加</a></li>
+    </ul>
+  </li>
+    <li><a href="#"><span class="icon color8"><i class="fa fa-flask"></i></span>分类管理<span class="caret"></span></a>
+    <ul>
+      <li><a href="/filmtype">电影类型列表</a></li>
+      <li><a href="/filmtype/create">电影类型添加</a></li>
+       <li><a href="/filmarea">电影地区列表</a></li>
+      <li><a href="/filmarea/create">电影地区添加</a></li>
+    </ul>
+  </li>
+  <li><a href="#"><span class="icon color8"><i class="fa fa-flask"></i></span>友情链接管理<span class="caret"></span></a>
+    <ul>
+      <li><a href="/adminlink">友情链接列表</a></li>
+      <li><a href="/adminlink/create">友情链接添加</a></li>
+    </ul>
+  </li>
+  <li><a href="#"><span class="icon color8"><i class="fa fa-flask"></i></span>轮播图管理<span class="caret"></span></a>
+    <ul>
+      <li><a href="/adminpic">轮播图列表</a></li>
+      <li><a href="/adminpic/create">轮播图添加</a></li>
+    </ul>
+  </li>
+  <li><a href="#"><span class="icon color8"><i class="fa fa-flask"></i></span>电影管理<span class="caret"></span></a>
+    <ul>
+      <li><a href="/adminmovies">电影列表</a></li>
+      <li><a href="/adminmovies/create">电影添加</a></li>
+    </ul>
+  </li>
+
+  
+>>>>>>> 84c72b6d29250350ab42b0d9c9455224f8aae16a
 
 
 </div>
@@ -369,7 +406,11 @@
 <!-- Start Footer -->
 <div class="row footer">
   <div class="col-md-6 text-left">
+<<<<<<< HEAD
   Copyright &copy; 2018.Company name All rights reserved.<a target="_blank" href="http://www.aspku.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+=======
+ <!--  Copyright &copy; 2018.Company name All rights reserved.<a target="_blank" href="http://www.aspku.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a> -->
+>>>>>>> 84c72b6d29250350ab42b0d9c9455224f8aae16a
   </div>
   <div class="col-md-6 text-right">
     
@@ -623,4 +664,8 @@ var options = {
 </script>
 
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 84c72b6d29250350ab42b0d9c9455224f8aae16a

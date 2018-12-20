@@ -1,142 +1,142 @@
 @extends('Admin.AdminPublic.public')
 @section('content')
-<!DOCTYPE html>
-<html lang="en">
+<div class="row">
+ <div class="col-md-12">
+      <div class="panel panel-default">
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title></title>
-  <!-- plugins:css -->
-  <link rel="stylesheet" href="/static/admins/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="/static/admins/vendors/css/vendor.bundle.base.css">
-  <!-- endinject -->
-  <!-- inject:css -->
-  <link rel="stylesheet" href="/static/admins/css/style.css">
-  <!-- endinject -->
-  <link rel="shortcut icon" href="/static/admins/images/favicon.png" />
-</head>
+        <div class="panel-title">
+         电影修改
+          <ul class="panel-tools">
+            <li><a class="icon minimise-tool"><i class="fa fa-minus"></i></a></li>
+            <li><a class="icon expand-tool"><i class="fa fa-expand"></i></a></li>
+            <li><a class="icon closed-tool"><i class="fa fa-times"></i></a></li>
+          </ul>
+        </div>
 
-<body>
-  <!-- <div class="container-scroller"> -->
-    <!-- partial:../../partials/_navbar.html -->
-    <!-- partial -->
-    <!-- <div class="container-fluid page-body-wrapper"> -->
-      <!-- partial:../../partials/_sidebar.html -->
-      <!-- partial -->
-      <!-- <div class="main-panel">         -->
-        <div class="content-wrapper">
-          <div class="row"> 
-            <div class="col-12 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">修改电影信息</h4>
-                  <p class="card-description">
-                    <!-- Basic form elements -->
-                  </p>
-                  <form class="forms-sample" action="/adminmovies/{{$movies->id}}" method="post" enctype="multipart/form-data">
+            <div class="panel-body">
+              <form class="form-horizontal" action="/adminmovies/{{$movies->id}}" method="post">
                     @if (count($errors) > 0)
                       <!-- <div class="mws-form-message error"> -->
                       <!-- <div class="alert alert-danger"> -->
-                        <ul class="alert alert-danger" id="ul">
-                          @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li> 
-                          @endforeach
-                        </ul>
+                        <!-- <ul class="alert alert-danger" id="ul" style="cursor:pointer;"> -->
+                            <div class="Modern-alert Modern-alert-icon Modern-alert-click alert5">
+                                @foreach ($errors->all() as $error)
+                                <i class="fa fa-warning"></i>
+                                {{ $error }}
+                                @endforeach
+                              </div>
+
                       <!-- </div> -->
                       <!-- </div> -->
                     @endif
-                    <div class="form-group">
-                      <label for="exampleInputName1">中文名字</label>
-                      <input type="text" class="form-control" id="exampleInputName1" name="zwname" value="{{$movies->zwname}}">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword4">英文名字</label>
-                      <input type="text" class="form-control" id="exampleInputPassword4"  name="ywname" value="{{$movies->ywname}}">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword4">电影图片</label>
-                      <img src="/uploads/dianyingtupian/{{$movies->tupian}}" width="100px" height="100px">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword4">新电影图片</label>
-                      <input type="file" class="form-control" id="exampleInputPassword4" name="tupian">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword4">电影类型</label>
-                      <input type="text" class="form-control" id="exampleInputPassword4" name="leixing" value="{{$movies->leixing}}">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPhone3">地区</label>
-                      <input type="text" class="form-control" id="exampleInputPhone3" name="diqu" value="{{$movies->diqu}}">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputName1">时长</label>
-                      <input type="text" class="form-control" id="exampleInputName1" name="shichang" value="{{$movies->shichang}}">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword4">上映时间</label>
-                      <input type="text" class="form-control" id="exampleInputPassword4" name="syshijian" value="{{$movies->syshijian}}">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword4">上映地区</label>
-                      <input type="text" class="form-control" id="exampleInputPassword4" name="sydiqu" value="{{$movies->sydiqu}}">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword4">想看</label>
-                      <input type="text" class="form-control" id="exampleInputPassword4" name="xiangkan" value="{{$movies->xiangkan}}">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPhone3">票房</label>
-                      <input type="text" class="form-control" id="exampleInputPhone3" name="piaofang" value="{{$movies->piaofang}}">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPhone3">电影评分</label>
-                      <input type="text" class="form-control" id="exampleInputPhone3"name="pingfen" value="{{$movies->pingfen}}">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPhone3">简介</label>
-                      <input type="text" class="form-control" id="exampleInputPhone3" name="jianjie" value="{{$movies->jianjie}}">
-                    </div>
-                    {{csrf_field()}}
-                    {{method_field("PUT")}}
-                    <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-                    <button class="btn btn-light">Cancel</button>
-                  </form>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label form-label">中文名字</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="zwname" value="{{$movies->zwname}}">
+                  </div>
                 </div>
-              </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label form-label">英文名字</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control"  name="ywname" value="{{$movies->ywname}}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label form-label">电影图片</label>
+                  <div class="col-sm-10">
+                    <img src="/uploads/dianyingtupian/{{$movies->tupian}}" width="100px" height="100px">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label form-label">新电影图片</label>
+                  <div class="col-sm-10">
+                    <input type="file" class="form-control" id="input12" name="tupian">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label form-label">电影类型</label>
+                  <div class="col-sm-10">
+                    <select name="leixing">
+                      @foreach($aa as $row)
+                      <option value="{{$row->id}}">{{$row->name}}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label form-label">地区</label>
+                  <div class="col-sm-10">
+                    <select name="diqu">
+                      @foreach($bb as $row)
+                      <option value="{{$row->a_id}}">{{$row->area_name}}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label form-label">时长</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="input12" name="shichang" value="{{$movies->shichang}}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label form-label">上映时间</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="input12" name="syshijian" value="{{$movies->syshijian}}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label form-label">上映地区</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="input12" name="sydiqu" value="{{$movies->sydiqu}}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label form-label">想看</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="input12" name="xiangkan" value="{{$movies->xiangkan}}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label form-label">票房</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="input12" name="piaofang" value="{{$movies->piaofang}}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label form-label">电影评分</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="input12" name="pingfen" value="{{$movies->pingfen}}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label form-label">简介</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="input12" name="jianjie" value="{{$movies->jianjie}}">
+                  </div>
+                </div>
+                <!-- <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10 checkbox checkbox-primary padding-l-35">
+                    <input id="checkbox103" type="checkbox" checked>
+                    <label for="checkbox103">Remember me</label>
+                  </div>
+                </div> -->
+
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                     {{csrf_field()}}
+                     {{method_field("PUT")}}
+                    <button type="submit" class="btn btn-default">Submit</button>
+                    <button class="btn btn-default">Cancel</button>
+                  </div>
+                </div>
+
+              </form>
+
             </div>
 
-          </div>
-        </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:../../partials/_footer.html -->
-        <!-- partial -->
-      <!-- </div> -->
-      <!-- main-panel ends -->
-    <!-- </div> -->
-    <!-- page-body-wrapper ends -->
-  <!-- </div> -->
-  <!-- container-scroller -->
-  <!-- plugins:js -->
-  <script src="/static/admins/vendors/js/vendor.bundle.base.js"></script>
-  <script src="/static/admins/vendors/js/vendor.bundle.addons.js"></script>
-  <!-- endinject -->
-  <!-- inject:js -->
-  <script src="/static/admins/js/off-canvas.js"></script>
-  <script src="/static/admins/js/misc.js"></script>
-  <script src="/static/admins/js/bootstrap.min.js"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page-->
-  <script src="/static/admins/js/file-upload.js"></script>
-  <!-- End custom js for this page-->
-</body>
-<script>
-  $("#ul").click(function(){
-    $(this).hide();
-  });
-</script>
-</html>
+      </div>
+    </div>
+</div>
 @endsection
-@section('title','修改电影信息')
+@section('title','电影修改')

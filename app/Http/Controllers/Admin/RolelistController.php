@@ -14,14 +14,16 @@ class RolelistController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
         // echo "this is Rolelist";
+        //获取搜索关键词
+        $k = $request->input('keywords');
         //获取角色信息
-        $role=DB::table("role")->get();
+        $role=DB::table("role")->where("name","like","%".$k."%")->paginate(3);
         //加载模板
-        return view("Admin.Rolelist.index",['role'=>$role]);
+        return view("Admin.Rolelist.index",['role'=>$role,'request'=>$request->all()]);
     }
 
     /**
