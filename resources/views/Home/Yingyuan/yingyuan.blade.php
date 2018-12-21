@@ -59,7 +59,6 @@
 </head>
 <body>
     <div class="container" id="app" class="page-cinemas/list" >
-<<<<<<< HEAD
   <div class="tags-panel">
     <ul class="tags-lines">
     
@@ -179,16 +178,13 @@
         </li>
 
       
-=======
-  <!-- <div class="tags-panel">
+<!-- <div class="tags-panel">
     <ul class="tags-lines">
->>>>>>> 21c99e3776868456907eece25b8246db85a0e2d3
         <li class="tags-line tags-line-border" data-type="brand">
           <div class="tags-title">品牌:</div>
           <ul class="tags">
             <li class="active">
               <a data-act="tag-click" data-val="{TagName:'全部', city_id:55}" data-id="-1" href="?movieId=249342&amp;brandId=-1" data-bid="b_n6nqkt97">全部</a>
-<<<<<<< HEAD
             </li>
             <li class="">
               <a data-act="tag-click" data-val="{TagName:'幸福蓝海国际影城', city_id:55}" data-id="30053" href="?movieId=249342&amp;brandId=30053" data-bid="b_n6nqkt97">幸福蓝海国际影城</a>
@@ -288,12 +284,10 @@
             <li class="">
               <a data-act="tag-click" data-val="{TagName:'高淳区', city_id:55}" data-id="2709" href="?movieId=249342&amp;districtId=2709" data-bid="b_ofl973zc">高淳区</a>
             </li>
-=======
             </li>           
             <li class="">
               <a data-act="tag-click" data-val="{TagName:'', city_id:55}" data-id="30053" href="?movieId=249342&amp;brandId=30053" data-bid="b_n6nqkt97"></a>
             </li>           
->>>>>>> 21c99e3776868456907eece25b8246db85a0e2d3
           </ul>
         </li>
         <li class="tags-line tags-line-border" data-type="hallType">
@@ -341,7 +335,6 @@
           </ul>
         </li>
     </ul>
-<<<<<<< HEAD
   </div>
 
   <div class="cinemas-list">
@@ -565,11 +558,6 @@
     
   
   <ul class="list-pager">
-
-
-
-
-  
       <li class="active">
     <a class="page_1"
       href="javascript:void(0);" style="cursor: default"
@@ -615,7 +603,6 @@
       href="?movieId=249342&amp;offset=12"
   >下一页</a>
 </li>
-    {{$data->render()}}
       <!-- <li class="active">
           <a class="page_1"
             href="javascript:void(0);" style="cursor: default">1</a>

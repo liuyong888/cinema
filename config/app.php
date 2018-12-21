@@ -229,16 +229,12 @@ return [
     ],
     //配置信息,规定文件上传的目录
     'uploads'=>'./uploads/dianyingtupian',
-<<<<<<< HEAD
      //配置信息,规定文件上传的目录
     'uploads1'=>'./uploads/dianyingrenyuantupian',
     //配置信息,规定文件上传的目录
     'uploads2'=>'./uploads/dianyingyonghutupian',
-=======
     //首页轮播图地址
     'uploadspic'=>'./uploads/homepic',
     //用户头像
     'uploadsinfo'=>'./uploads/memberinfo',
->>>>>>> 21c99e3776868456907eece25b8246db85a0e2d3
-
 ];

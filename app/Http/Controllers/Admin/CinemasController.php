@@ -17,26 +17,16 @@ class CinemasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    // 后台影院列表
-<<<<<<< HEAD
-    public function index()
-    {
-        // echo "列表";
-        $data=DB::table("cinemas")->get();
-        // dd($data);
-        return view("Admin.Cinemas.index",['data'=>$data]);
-=======
+    // 后台影院列表   
     public function index(Request $request)
     {   
         // 获取keywords
         $key=$request->input('keywords');
         // 获取数据
-        $data=DB::table("cinemas")->where("name","like","%".$key."%")->paginate(1);
+        $data=DB::table("cinemas")->where("name","like","%".$key."%")->paginate(2);
         // dd($data);
         return view("Admin.Cinemas.index",['data'=>$data,'request'=>$request->all()]);
->>>>>>> 21c99e3776868456907eece25b8246db85a0e2d3
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -143,16 +133,11 @@ class CinemasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-<<<<<<< HEAD
-    {
-        //123
-=======
     {      
         // echo $id;
        if(DB::table('cinemas')->where("id","=",$id)->delete()){
             return redirect("/admincinemas")->with('success','删除成功!');
        }
->>>>>>> 21c99e3776868456907eece25b8246db85a0e2d3
     }
     // 文件上传(图片)
     public function uploads($req)

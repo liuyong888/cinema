@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 
 use DB;
 use App\Models\Movies;
->>>>>>> 21c99e3776868456907eece25b8246db85a0e2d3
 class DianyingController extends Controller
 {
     /**

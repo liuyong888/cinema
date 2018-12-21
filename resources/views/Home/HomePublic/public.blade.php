@@ -21,13 +21,10 @@
 	<div class="tab-header">
 		<div class="inner">
 			<div class="pull-right">
-<<<<<<< HEAD
 				<a href="/login/create"><span class="cr">登录</span></a>
 				<a href="/register/create">注册</a>
-=======
 				<a href="/login"><span class="cr">登录</span></a>
 				<a href="/register">注册</a>
->>>>>>> 21c99e3776868456907eece25b8246db85a0e2d3
 				<a href="/gerenxinxi">我的账户</a>
 				<a href="/dingdanxinxi">我的订单</a>
 			</div>
@@ -39,11 +36,8 @@
 			<a class="logo" href="index.html"><img src="/static/Home/images/icons/logo.jpg" alt="U袋网" class="cover"></a>
 			<div class="search-box">
 				<form class="input-group" action="/sousuo" method="get">
-<<<<<<< HEAD
 					<input type="text">
-=======
 					<input type="text" name="keywords" value="">
->>>>>>> 21c99e3776868456907eece25b8246db85a0e2d3
 					<span class="input-group-btn">
 						<button type="submit">
 							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>

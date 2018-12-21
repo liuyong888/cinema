@@ -16,13 +16,13 @@ Route::get('/', function () {
 });
 
 // 后台首页
-// Route::resource("/admin","Admin\AdminController");
+Route::resource("/admin","Admin\AdminController");
 // 后台管理员
-// Route::resource("/adminuser","Admin\UserController");
+Route::resource("/adminuser","Admin\UserController");
 // 后台会员
-// Route::resource("/adminmember","Admin\MemberController");
+Route::resource("/adminmember","Admin\MemberController");
 // 查看后台会员信息
-// Route::get("/adminmemcheck/{id}","Admin\MemberController@check");
+Route::get("/adminmemcheck/{id}","Admin\MemberController@check");
 //后台电影列表
 Route::resource("/adminmovies","Admin\DianyingController");
 
@@ -169,4 +169,4 @@ Route::resource("/gerenxinxi","Home\GerenxinxiController");
 Route::resource("/dingdanxinxi","Home\DingdanxinxiController");
 
 
-
+// ly

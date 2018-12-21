@@ -1,9 +1,5 @@
 @extends("Admin.AdminPublic.public")
 @section('content')
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 21c99e3776868456907eece25b8246db85a0e2d3
 <div class="row">
 
     <!-- Start Chart Daily -->
@@ -531,9 +527,7 @@
 
   </div>
 @endsection
-<<<<<<< HEAD
 @section('title','后台首页')
-=======
 @section('title','后台首页')
 <!-- @extends("Admin.AdminPublic.public")
 @section('content')
@@ -898,9 +892,6 @@
             </div>
           </div>
         </div>
-=======
 <h1>后台首页</h1>
->>>>>>> 84c72b6d29250350ab42b0d9c9455224f8aae16a
 @endsection
 @section('title','后台首页') -->
->>>>>>> 21c99e3776868456907eece25b8246db85a0e2d3

@@ -55,12 +55,9 @@ val = {"subnavId":1};    window.system = {};
     .stonefont {
       font-family: stonefont;
     }
-<<<<<<< HEAD
-=======
     a:link{
       text-decoration: none;
     }
->>>>>>> 21c99e3776868456907eece25b8246db85a0e2d3
   </style>
 </head>
 <body>
@@ -100,7 +97,6 @@ val = {"subnavId":1};    window.system = {};
                 href="javascript:void(0);" style="cursor: default"
             >全部</a>
           </li>
-<<<<<<< HEAD
           <li >
             <a data-act="tag-click" data-val="{TagName:'爱情'}"
                 href="?catId=3"
